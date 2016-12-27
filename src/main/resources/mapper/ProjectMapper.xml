@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.ProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Project" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pro_num" property="proNum" jdbcType="VARCHAR" />
+    <result column="ord_id" property="ordId" jdbcType="INTEGER" />
+    <result column="od_id" property="odId" jdbcType="INTEGER" />
+    <result column="ord_num" property="ordNum" jdbcType="VARCHAR" />
+    <result column="pro_progress" property="proProgress" jdbcType="INTEGER" />
+    <result column="emp_id" property="empId" jdbcType="INTEGER" />
+    <result column="pro_accept_time" property="proAcceptTime" jdbcType="DATE" />
+    <result column="pro_schedule" property="proSchedule" jdbcType="REAL" />
+    <result column="deliver_time" property="deliverTime" jdbcType="DATE" />
+    <result column="complete_date" property="completeDate" jdbcType="DATE" />
+    <result column="original_file" property="originalFile" jdbcType="VARCHAR" />
+    <result column="complete_file" property="completeFile" jdbcType="VARCHAR" />
+    <result column="words_count" property="wordsCount" jdbcType="INTEGER" />
+    <result column="resource_apply" property="resourceApply" jdbcType="VARCHAR" />
+    <result column="secret_level" property="secretLevel" jdbcType="INTEGER" />
+    <result column="pro_priority" property="proPriority" jdbcType="INTEGER" />
+    <result column="pro_price" property="proPrice" jdbcType="DECIMAL" />
+    <result column="service_fee" property="serviceFee" jdbcType="DECIMAL" />
+    <result column="settlement" property="settlement" jdbcType="DECIMAL" />
+    <result column="authlist" property="authlist" jdbcType="VARCHAR" />
+    <result column="pro_requ" property="proRequ" jdbcType="VARCHAR" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_project
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Project" >
+    insert into t_project (id, pro_num, ord_id, 
+      od_id, ord_num, pro_progress, 
+      emp_id, pro_accept_time, pro_schedule, 
+      deliver_time, complete_date, original_file, 
+      complete_file, words_count, resource_apply, 
+      secret_level, pro_priority, pro_price, 
+      service_fee, settlement, authlist, 
+      pro_requ, create_r_date, create_time, 
+      create_user, create_username, update_time, 
+      ordered, delflag, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{proNum,jdbcType=VARCHAR}, #{ordId,jdbcType=INTEGER}, 
+      #{odId,jdbcType=INTEGER}, #{ordNum,jdbcType=VARCHAR}, #{proProgress,jdbcType=INTEGER}, 
+      #{empId,jdbcType=INTEGER}, #{proAcceptTime,jdbcType=DATE}, #{proSchedule,jdbcType=REAL}, 
+      #{deliverTime,jdbcType=DATE}, #{completeDate,jdbcType=DATE}, #{originalFile,jdbcType=VARCHAR}, 
+      #{completeFile,jdbcType=VARCHAR}, #{wordsCount,jdbcType=INTEGER}, #{resourceApply,jdbcType=VARCHAR}, 
+      #{secretLevel,jdbcType=INTEGER}, #{proPriority,jdbcType=INTEGER}, #{proPrice,jdbcType=DECIMAL}, 
+      #{serviceFee,jdbcType=DECIMAL}, #{settlement,jdbcType=DECIMAL}, #{authlist,jdbcType=VARCHAR}, 
+      #{proRequ,jdbcType=VARCHAR}, #{createRDate,jdbcType=DATE}, #{createTime,jdbcType=DATE}, 
+      #{createUser,jdbcType=INTEGER}, #{createUsername,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, 
+      #{ordered,jdbcType=INTEGER}, #{delflag,jdbcType=BIT}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Project" >
+    update t_project
+    set pro_num = #{proNum,jdbcType=VARCHAR},
+      ord_id = #{ordId,jdbcType=INTEGER},
+      od_id = #{odId,jdbcType=INTEGER},
+      ord_num = #{ordNum,jdbcType=VARCHAR},
+      pro_progress = #{proProgress,jdbcType=INTEGER},
+      emp_id = #{empId,jdbcType=INTEGER},
+      pro_accept_time = #{proAcceptTime,jdbcType=DATE},
+      pro_schedule = #{proSchedule,jdbcType=REAL},
+      deliver_time = #{deliverTime,jdbcType=DATE},
+      complete_date = #{completeDate,jdbcType=DATE},
+      original_file = #{originalFile,jdbcType=VARCHAR},
+      complete_file = #{completeFile,jdbcType=VARCHAR},
+      words_count = #{wordsCount,jdbcType=INTEGER},
+      resource_apply = #{resourceApply,jdbcType=VARCHAR},
+      secret_level = #{secretLevel,jdbcType=INTEGER},
+      pro_priority = #{proPriority,jdbcType=INTEGER},
+      pro_price = #{proPrice,jdbcType=DECIMAL},
+      service_fee = #{serviceFee,jdbcType=DECIMAL},
+      settlement = #{settlement,jdbcType=DECIMAL},
+      authlist = #{authlist,jdbcType=VARCHAR},
+      pro_requ = #{proRequ,jdbcType=VARCHAR},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, pro_num, ord_id, od_id, ord_num, pro_progress, emp_id, pro_accept_time, 
+    pro_schedule, deliver_time, complete_date, original_file, complete_file, words_count, 
+    resource_apply, secret_level, pro_priority, pro_price, service_fee, settlement, authlist, 
+    pro_requ, create_r_date, create_time, create_user, create_username, update_time, 
+    ordered, delflag, remark
+    from t_project
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, pro_num, ord_id, od_id, ord_num, pro_progress, emp_id, pro_accept_time, 
+    pro_schedule, deliver_time, complete_date, original_file, complete_file, words_count, 
+    resource_apply, secret_level, pro_priority, pro_price, service_fee, settlement, authlist, 
+    pro_requ, create_r_date, create_time, create_user, create_username, update_time, 
+    ordered, delflag, remark
+    from t_project
+  </select>
+</mapper>

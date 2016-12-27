@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.StaffMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Staff" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="staf_num" property="stafNum" jdbcType="CHAR" />
+    <result column="staf_type" property="stafType" jdbcType="INTEGER" />
+    <result column="staf_name" property="stafName" jdbcType="VARCHAR" />
+    <result column="staf_alias" property="stafAlias" jdbcType="VARCHAR" />
+    <result column="work_type" property="workType" jdbcType="BIT" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="birth" property="birth" jdbcType="DATE" />
+    <result column="tran_type" property="tranType" jdbcType="TINYINT" />
+    <result column="expert" property="expert" jdbcType="VARCHAR" />
+    <result column="direction_type" property="directionType" jdbcType="INTEGER" />
+    <result column="direction_price" property="directionPrice" jdbcType="VARCHAR" />
+    <result column="adress" property="adress" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="CHAR" />
+    <result column="Email" property="email" jdbcType="VARCHAR" />
+    <result column="QQ" property="qq" jdbcType="VARCHAR" />
+    <result column="attitude" property="attitude" jdbcType="BIT" />
+    <result column="occupation" property="occupation" jdbcType="VARCHAR" />
+    <result column="tran_years" property="tranYears" jdbcType="TINYINT" />
+    <result column="graduate" property="graduate" jdbcType="VARCHAR" />
+    <result column="education" property="education" jdbcType="BIT" />
+    <result column="profession" property="profession" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="DOUBLE" />
+    <result column="ID_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="bank" property="bank" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="CHAR" />
+    <result column="staf_status" property="stafStatus" jdbcType="BIT" />
+    <result column="Dense_level" property="denseLevel" jdbcType="INTEGER" />
+    <result column="protocol" property="protocol" jdbcType="BIT" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_staff
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Staff" >
+    insert into t_staff (id, staf_num, staf_type, 
+      staf_name, staf_alias, work_type, 
+      language, sex, birth, tran_type, 
+      expert, direction_type, direction_price, 
+      adress, phone, mobile, 
+      Email, QQ, attitude, occupation, 
+      tran_years, graduate, education, 
+      profession, grade, score, 
+      ID_card, bank, bank_account, 
+      staf_status, Dense_level, protocol, 
+      create_r_date, create_time, create_user, 
+      create_username, ordered, delflag, 
+      remark)
+    values (#{id,jdbcType=INTEGER}, #{stafNum,jdbcType=CHAR}, #{stafType,jdbcType=INTEGER}, 
+      #{stafName,jdbcType=VARCHAR}, #{stafAlias,jdbcType=VARCHAR}, #{workType,jdbcType=BIT}, 
+      #{language,jdbcType=VARCHAR}, #{sex,jdbcType=BIT}, #{birth,jdbcType=DATE}, #{tranType,jdbcType=TINYINT}, 
+      #{expert,jdbcType=VARCHAR}, #{directionType,jdbcType=INTEGER}, #{directionPrice,jdbcType=VARCHAR}, 
+      #{adress,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, 
+      #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{attitude,jdbcType=BIT}, #{occupation,jdbcType=VARCHAR}, 
+      #{tranYears,jdbcType=TINYINT}, #{graduate,jdbcType=VARCHAR}, #{education,jdbcType=BIT}, 
+      #{profession,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{score,jdbcType=DOUBLE}, 
+      #{idCard,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{bankAccount,jdbcType=CHAR}, 
+      #{stafStatus,jdbcType=BIT}, #{denseLevel,jdbcType=INTEGER}, #{protocol,jdbcType=BIT}, 
+      #{createRDate,jdbcType=DATE}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=INTEGER}, 
+      #{createUsername,jdbcType=VARCHAR}, #{ordered,jdbcType=INTEGER}, #{delflag,jdbcType=BIT}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Staff" >
+    update t_staff
+    set staf_num = #{stafNum,jdbcType=CHAR},
+      staf_type = #{stafType,jdbcType=INTEGER},
+      staf_name = #{stafName,jdbcType=VARCHAR},
+      staf_alias = #{stafAlias,jdbcType=VARCHAR},
+      work_type = #{workType,jdbcType=BIT},
+      language = #{language,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=BIT},
+      birth = #{birth,jdbcType=DATE},
+      tran_type = #{tranType,jdbcType=TINYINT},
+      expert = #{expert,jdbcType=VARCHAR},
+      direction_type = #{directionType,jdbcType=INTEGER},
+      direction_price = #{directionPrice,jdbcType=VARCHAR},
+      adress = #{adress,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=CHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      attitude = #{attitude,jdbcType=BIT},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      tran_years = #{tranYears,jdbcType=TINYINT},
+      graduate = #{graduate,jdbcType=VARCHAR},
+      education = #{education,jdbcType=BIT},
+      profession = #{profession,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      score = #{score,jdbcType=DOUBLE},
+      ID_card = #{idCard,jdbcType=VARCHAR},
+      bank = #{bank,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=CHAR},
+      staf_status = #{stafStatus,jdbcType=BIT},
+      Dense_level = #{denseLevel,jdbcType=INTEGER},
+      protocol = #{protocol,jdbcType=BIT},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, staf_num, staf_type, staf_name, staf_alias, work_type, language, sex, 
+    birth, tran_type, expert, direction_type, direction_price, adress, phone, mobile, 
+    Email, QQ, attitude, occupation, tran_years, graduate, education, profession, grade, 
+    score, ID_card, bank, bank_account, staf_status, Dense_level, protocol, create_r_date, 
+    create_time, create_user, create_username, ordered, delflag, remark
+    from t_staff
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, staf_num, staf_type, staf_name, staf_alias, work_type, language, sex, 
+    birth, tran_type, expert, direction_type, direction_price, adress, phone, mobile, 
+    Email, QQ, attitude, occupation, tran_years, graduate, education, profession, grade, 
+    score, ID_card, bank, bank_account, staf_status, Dense_level, protocol, create_r_date, 
+    create_time, create_user, create_username, ordered, delflag, remark
+    from t_staff
+  </select>
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Department" >
+  
+ 	<!--  "TIMESTAMP" -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dept_num" property="deptNum" jdbcType="CHAR" />
+    <result column="dept_name" property="deptName" jdbcType="VARCHAR" />
+    <result column="isparent" property="isparent" jdbcType="BIT" />
+    <result column="parentid" property="parentid" jdbcType="INTEGER" />
+    <result column="desp" property="desp" jdbcType="VARCHAR" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="getDeptByName" resultType="int">
+  	select count(*) from t_department where dept_name = #{deptName}
+  </select>
+  
+  <select id="getTotal" resultType="long">
+  		select count(*) from t_department
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_department
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Department" >
+    insert into t_department (id, dept_num, dept_name, 
+      isparent, parentid, desp, 
+      create_r_date, create_time, create_user, 
+      create_username, update_time, delflag, 
+      ordered, remark)
+    values (#{id,jdbcType=INTEGER}, #{deptNum,jdbcType=CHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{isparent,jdbcType=BIT}, #{parentid,jdbcType=INTEGER}, #{desp,jdbcType=VARCHAR}, 
+      #{createRDate,jdbcType=DATE}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=INTEGER}, 
+      #{createUsername,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{delflag,jdbcType=BIT}, 
+      #{ordered,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Department" >
+    update t_department
+    set dept_num = #{deptNum,jdbcType=CHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      isparent = #{isparent,jdbcType=BIT},
+      parentid = #{parentid,jdbcType=INTEGER},
+      desp = #{desp,jdbcType=VARCHAR},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      delflag = #{delflag,jdbcType=BIT},
+      ordered = #{ordered,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, dept_num, dept_name, isparent, parentid, desp, create_r_date, create_time, 
+    create_user, create_username, update_time, delflag, ordered, remark
+    from t_department
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, dept_num, dept_name, isparent, parentid, desp, create_r_date, create_time, 
+    create_user, create_username, update_time, delflag, ordered, remark
+    from t_department where delflag = false
+  </select>
+</mapper>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.CustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Customer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cus_num" property="cusNum" jdbcType="VARCHAR" />
+    <result column="cusp_id" property="cuspId" jdbcType="INTEGER" />
+    <result column="dep_id" property="depId" jdbcType="INTEGER" />
+    <result column="emp_id" property="empId" jdbcType="INTEGER" />
+    <result column="emp_num" property="empNum" jdbcType="CHAR" />
+    <result column="cus_name_zh" property="cusNameZh" jdbcType="VARCHAR" />
+    <result column="cus_name_en" property="cusNameEn" jdbcType="VARCHAR" />
+    <result column="cus_industry" property="cusIndustry" jdbcType="INTEGER" />
+    <result column="cus_type" property="cusType" jdbcType="BIT" />
+    <result column="cus_nature" property="cusNature" jdbcType="BIT" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="address_en" property="addressEn" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="TINYINT" />
+    <result column="isapproval" property="isapproval" jdbcType="BIT" />
+    <result column="approval" property="approval" jdbcType="INTEGER" />
+    <result column="xde_aims" property="xdeAims" jdbcType="INTEGER" />
+    <result column="xde_real" property="xdeReal" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="BIT" />
+    <result column="bank" property="bank" jdbcType="VARCHAR" />
+    <result column="bank_en" property="bankEn" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="swift_code" property="swiftCode" jdbcType="VARCHAR" />
+    <result column="opponent_name" property="opponentName" jdbcType="VARCHAR" />
+    <result column="opponent_position" property="opponentPosition" jdbcType="BIT" />
+    <result column="opponent_stage" property="opponentStage" jdbcType="BIT" />
+    <result column="khtp_action" property="khtpAction" jdbcType="INTEGER" />
+    <result column="cdl" property="cdl" jdbcType="INTEGER" />
+    <result column="myd" property="myd" jdbcType="TINYINT" />
+    <result column="xyd" property="xyd" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="BIT" />
+    <result column="drain_reason" property="drainReason" jdbcType="VARCHAR" />
+    <result column="drain_strategy" property="drainStrategy" jdbcType="VARCHAR" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_customer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Customer" >
+    insert into t_customer (id, cus_num, cusp_id, 
+      dep_id, emp_id, emp_num, 
+      cus_name_zh, cus_name_en, cus_industry, 
+      cus_type, cus_nature, address, 
+      address_en, source, isapproval, 
+      approval, xde_aims, xde_real, 
+      level, bank, bank_en, bank_account, 
+      swift_code, opponent_name, opponent_position, 
+      opponent_stage, khtp_action, cdl, 
+      myd, xyd, status, drain_reason, 
+      drain_strategy, create_r_date, create_time, 
+      create_user, create_username, update_time, 
+      ordered, delflag, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{cusNum,jdbcType=VARCHAR}, #{cuspId,jdbcType=INTEGER}, 
+      #{depId,jdbcType=INTEGER}, #{empId,jdbcType=INTEGER}, #{empNum,jdbcType=CHAR}, 
+      #{cusNameZh,jdbcType=VARCHAR}, #{cusNameEn,jdbcType=VARCHAR}, #{cusIndustry,jdbcType=INTEGER}, 
+      #{cusType,jdbcType=BIT}, #{cusNature,jdbcType=BIT}, #{address,jdbcType=VARCHAR}, 
+      #{addressEn,jdbcType=VARCHAR}, #{source,jdbcType=TINYINT}, #{isapproval,jdbcType=BIT}, 
+      #{approval,jdbcType=INTEGER}, #{xdeAims,jdbcType=INTEGER}, #{xdeReal,jdbcType=INTEGER}, 
+      #{level,jdbcType=BIT}, #{bank,jdbcType=VARCHAR}, #{bankEn,jdbcType=VARCHAR}, #{bankAccount,jdbcType=VARCHAR}, 
+      #{swiftCode,jdbcType=VARCHAR}, #{opponentName,jdbcType=VARCHAR}, #{opponentPosition,jdbcType=BIT}, 
+      #{opponentStage,jdbcType=BIT}, #{khtpAction,jdbcType=INTEGER}, #{cdl,jdbcType=INTEGER}, 
+      #{myd,jdbcType=TINYINT}, #{xyd,jdbcType=TINYINT}, #{status,jdbcType=BIT}, #{drainReason,jdbcType=VARCHAR}, 
+      #{drainStrategy,jdbcType=VARCHAR}, #{createRDate,jdbcType=DATE}, #{createTime,jdbcType=DATE}, 
+      #{createUser,jdbcType=INTEGER}, #{createUsername,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, 
+      #{ordered,jdbcType=INTEGER}, #{delflag,jdbcType=BIT}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Customer" >
+    update t_customer
+    set cus_num = #{cusNum,jdbcType=VARCHAR},
+      cusp_id = #{cuspId,jdbcType=INTEGER},
+      dep_id = #{depId,jdbcType=INTEGER},
+      emp_id = #{empId,jdbcType=INTEGER},
+      emp_num = #{empNum,jdbcType=CHAR},
+      cus_name_zh = #{cusNameZh,jdbcType=VARCHAR},
+      cus_name_en = #{cusNameEn,jdbcType=VARCHAR},
+      cus_industry = #{cusIndustry,jdbcType=INTEGER},
+      cus_type = #{cusType,jdbcType=BIT},
+      cus_nature = #{cusNature,jdbcType=BIT},
+      address = #{address,jdbcType=VARCHAR},
+      address_en = #{addressEn,jdbcType=VARCHAR},
+      source = #{source,jdbcType=TINYINT},
+      isapproval = #{isapproval,jdbcType=BIT},
+      approval = #{approval,jdbcType=INTEGER},
+      xde_aims = #{xdeAims,jdbcType=INTEGER},
+      xde_real = #{xdeReal,jdbcType=INTEGER},
+      level = #{level,jdbcType=BIT},
+      bank = #{bank,jdbcType=VARCHAR},
+      bank_en = #{bankEn,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      swift_code = #{swiftCode,jdbcType=VARCHAR},
+      opponent_name = #{opponentName,jdbcType=VARCHAR},
+      opponent_position = #{opponentPosition,jdbcType=BIT},
+      opponent_stage = #{opponentStage,jdbcType=BIT},
+      khtp_action = #{khtpAction,jdbcType=INTEGER},
+      cdl = #{cdl,jdbcType=INTEGER},
+      myd = #{myd,jdbcType=TINYINT},
+      xyd = #{xyd,jdbcType=TINYINT},
+      status = #{status,jdbcType=BIT},
+      drain_reason = #{drainReason,jdbcType=VARCHAR},
+      drain_strategy = #{drainStrategy,jdbcType=VARCHAR},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, cus_num, cusp_id, dep_id, emp_id, emp_num, cus_name_zh, cus_name_en, cus_industry, 
+    cus_type, cus_nature, address, address_en, source, isapproval, approval, xde_aims, 
+    xde_real, level, bank, bank_en, bank_account, swift_code, opponent_name, opponent_position, 
+    opponent_stage, khtp_action, cdl, myd, xyd, status, drain_reason, drain_strategy, 
+    create_r_date, create_time, create_user, create_username, update_time, ordered, delflag, 
+    remark
+    from t_customer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, cus_num, cusp_id, dep_id, emp_id, emp_num, cus_name_zh, cus_name_en, cus_industry, 
+    cus_type, cus_nature, address, address_en, source, isapproval, approval, xde_aims, 
+    xde_real, level, bank, bank_en, bank_account, swift_code, opponent_name, opponent_position, 
+    opponent_stage, khtp_action, cdl, myd, xyd, status, drain_reason, drain_strategy, 
+    create_r_date, create_time, create_user, create_username, update_time, ordered, delflag, 
+    remark
+    from t_customer
+  </select>
+</mapper>

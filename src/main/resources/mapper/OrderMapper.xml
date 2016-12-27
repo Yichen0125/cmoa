@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Order" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ord_num" property="ordNum" jdbcType="VARCHAR" />
+    <result column="cus_id" property="cusId" jdbcType="INTEGER" />
+    <result column="emp_id" property="empId" jdbcType="INTEGER" />
+    <result column="emp_num" property="empNum" jdbcType="CHAR" />
+    <result column="emp_name" property="empName" jdbcType="VARCHAR" />
+    <result column="m_id" property="mId" jdbcType="INTEGER" />
+    <result column="m_name" property="mName" jdbcType="VARCHAR" />
+    <result column="contract_num" property="contractNum" jdbcType="VARCHAR" />
+    <result column="contract_date" property="contractDate" jdbcType="DATE" />
+    <result column="region" property="region" jdbcType="VARCHAR" />
+    <result column="contact_id" property="contactId" jdbcType="INTEGER" />
+    <result column="ord_type" property="ordType" jdbcType="BIT" />
+    <result column="original_name" property="originalName" jdbcType="VARCHAR" />
+    <result column="tran_type" property="tranType" jdbcType="TINYINT" />
+    <result column="format_document" property="formatDocument" jdbcType="VARCHAR" />
+    <result column="format_requ" property="formatRequ" jdbcType="BIT" />
+    <result column="ord_time" property="ordTime" jdbcType="DATE" />
+    <result column="complete_time" property="completeTime" jdbcType="DATE" />
+    <result column="r_complete_time" property="rCompleteTime" jdbcType="DATE" />
+    <result column="count_method" property="countMethod" jdbcType="BIT" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="change_rate" property="changeRate" jdbcType="DOUBLE" />
+    <result column="increase" property="increase" jdbcType="DECIMAL" />
+    <result column="importance" property="importance" jdbcType="BIT" />
+    <result column="priority" property="priority" jdbcType="BIT" />
+    <result column="manageauth" property="manageauth" jdbcType="BIT" />
+    <result column="cus_sign" property="cusSign" jdbcType="BIT" />
+    <result column="ord_status" property="ordStatus" jdbcType="BIT" />
+    <result column="audit" property="audit" jdbcType="BIT" />
+    <result column="ord_progress" property="ordProgress" jdbcType="DOUBLE" />
+    <result column="zdyy" property="zdyy" jdbcType="VARCHAR" />
+    <result column="instalment" property="instalment" jdbcType="INTEGER" />
+    <result column="chek_times" property="chekTimes" jdbcType="TINYINT" />
+    <result column="ord_total" property="ordTotal" jdbcType="DECIMAL" />
+    <result column="settlement_amount" property="settlementAmount" jdbcType="DECIMAL" />
+    <result column="conf_time" property="confTime" jdbcType="DATE" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Order" >
+    insert into t_order (id, ord_num, cus_id, 
+      emp_id, emp_num, emp_name, 
+      m_id, m_name, contract_num, 
+      contract_date, region, contact_id, 
+      ord_type, original_name, tran_type, 
+      format_document, format_requ, ord_time, 
+      complete_time, r_complete_time, count_method, 
+      price, count, change_rate, 
+      increase, importance, priority, 
+      manageauth, cus_sign, ord_status, 
+      audit, ord_progress, zdyy, 
+      instalment, chek_times, ord_total, 
+      settlement_amount, conf_time, create_r_date, 
+      create_time, create_user, create_username, 
+      update_time, ordered, delflag, 
+      remark)
+    values (#{id,jdbcType=INTEGER}, #{ordNum,jdbcType=VARCHAR}, #{cusId,jdbcType=INTEGER}, 
+      #{empId,jdbcType=INTEGER}, #{empNum,jdbcType=CHAR}, #{empName,jdbcType=VARCHAR}, 
+      #{mId,jdbcType=INTEGER}, #{mName,jdbcType=VARCHAR}, #{contractNum,jdbcType=VARCHAR}, 
+      #{contractDate,jdbcType=DATE}, #{region,jdbcType=VARCHAR}, #{contactId,jdbcType=INTEGER}, 
+      #{ordType,jdbcType=BIT}, #{originalName,jdbcType=VARCHAR}, #{tranType,jdbcType=TINYINT}, 
+      #{formatDocument,jdbcType=VARCHAR}, #{formatRequ,jdbcType=BIT}, #{ordTime,jdbcType=DATE}, 
+      #{completeTime,jdbcType=DATE}, #{rCompleteTime,jdbcType=DATE}, #{countMethod,jdbcType=BIT}, 
+      #{price,jdbcType=DECIMAL}, #{count,jdbcType=INTEGER}, #{changeRate,jdbcType=DOUBLE}, 
+      #{increase,jdbcType=DECIMAL}, #{importance,jdbcType=BIT}, #{priority,jdbcType=BIT}, 
+      #{manageauth,jdbcType=BIT}, #{cusSign,jdbcType=BIT}, #{ordStatus,jdbcType=BIT}, 
+      #{audit,jdbcType=BIT}, #{ordProgress,jdbcType=DOUBLE}, #{zdyy,jdbcType=VARCHAR}, 
+      #{instalment,jdbcType=INTEGER}, #{chekTimes,jdbcType=TINYINT}, #{ordTotal,jdbcType=DECIMAL}, 
+      #{settlementAmount,jdbcType=DECIMAL}, #{confTime,jdbcType=DATE}, #{createRDate,jdbcType=DATE}, 
+      #{createTime,jdbcType=DATE}, #{createUser,jdbcType=INTEGER}, #{createUsername,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{ordered,jdbcType=INTEGER}, #{delflag,jdbcType=BIT}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Order" >
+    update t_order
+    set ord_num = #{ordNum,jdbcType=VARCHAR},
+      cus_id = #{cusId,jdbcType=INTEGER},
+      emp_id = #{empId,jdbcType=INTEGER},
+      emp_num = #{empNum,jdbcType=CHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      m_id = #{mId,jdbcType=INTEGER},
+      m_name = #{mName,jdbcType=VARCHAR},
+      contract_num = #{contractNum,jdbcType=VARCHAR},
+      contract_date = #{contractDate,jdbcType=DATE},
+      region = #{region,jdbcType=VARCHAR},
+      contact_id = #{contactId,jdbcType=INTEGER},
+      ord_type = #{ordType,jdbcType=BIT},
+      original_name = #{originalName,jdbcType=VARCHAR},
+      tran_type = #{tranType,jdbcType=TINYINT},
+      format_document = #{formatDocument,jdbcType=VARCHAR},
+      format_requ = #{formatRequ,jdbcType=BIT},
+      ord_time = #{ordTime,jdbcType=DATE},
+      complete_time = #{completeTime,jdbcType=DATE},
+      r_complete_time = #{rCompleteTime,jdbcType=DATE},
+      count_method = #{countMethod,jdbcType=BIT},
+      price = #{price,jdbcType=DECIMAL},
+      count = #{count,jdbcType=INTEGER},
+      change_rate = #{changeRate,jdbcType=DOUBLE},
+      increase = #{increase,jdbcType=DECIMAL},
+      importance = #{importance,jdbcType=BIT},
+      priority = #{priority,jdbcType=BIT},
+      manageauth = #{manageauth,jdbcType=BIT},
+      cus_sign = #{cusSign,jdbcType=BIT},
+      ord_status = #{ordStatus,jdbcType=BIT},
+      audit = #{audit,jdbcType=BIT},
+      ord_progress = #{ordProgress,jdbcType=DOUBLE},
+      zdyy = #{zdyy,jdbcType=VARCHAR},
+      instalment = #{instalment,jdbcType=INTEGER},
+      chek_times = #{chekTimes,jdbcType=TINYINT},
+      ord_total = #{ordTotal,jdbcType=DECIMAL},
+      settlement_amount = #{settlementAmount,jdbcType=DECIMAL},
+      conf_time = #{confTime,jdbcType=DATE},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, ord_num, cus_id, emp_id, emp_num, emp_name, m_id, m_name, contract_num, 
+    contract_date, region, contact_id, ord_type, original_name, tran_type, format_document, 
+    format_requ, ord_time, complete_time, r_complete_time, count_method, price, count, 
+    change_rate, increase, importance, priority, manageauth, cus_sign, ord_status, audit, 
+    ord_progress, zdyy, instalment, chek_times, ord_total, settlement_amount, conf_time, 
+    create_r_date, create_time, create_user, create_username, update_time, ordered, delflag, 
+    remark
+    from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, ord_num, cus_id, emp_id, emp_num, emp_name, m_id, m_name, contract_num, 
+    contract_date, region, contact_id, ord_type, original_name, tran_type, format_document, 
+    format_requ, ord_time, complete_time, r_complete_time, count_method, price, count, 
+    change_rate, increase, importance, priority, manageauth, cus_sign, ord_status, audit, 
+    ord_progress, zdyy, instalment, chek_times, ord_total, settlement_amount, conf_time, 
+    create_r_date, create_time, create_user, create_username, update_time, ordered, delflag, 
+    remark
+    from t_order
+  </select>
+</mapper>

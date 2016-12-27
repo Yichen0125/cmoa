@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.IndustrypMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Industryp" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="indp_num" property="indpNum" jdbcType="CHAR" />
+    <result column="indp_name" property="indpName" jdbcType="VARCHAR" />
+    <result column="limit_dep_id" property="limitDepId" jdbcType="INTEGER" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_industryp
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Industryp" >
+    insert into t_industryp (id, indp_num, indp_name, 
+      limit_dep_id, create_r_date, create_time, 
+      create_user, create_username, update_time, 
+      ordered, delflag, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{indpNum,jdbcType=CHAR}, #{indpName,jdbcType=VARCHAR}, 
+      #{limitDepId,jdbcType=INTEGER}, #{createRDate,jdbcType=DATE}, #{createTime,jdbcType=DATE}, 
+      #{createUser,jdbcType=INTEGER}, #{createUsername,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, 
+      #{ordered,jdbcType=INTEGER}, #{delflag,jdbcType=BIT}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Industryp" >
+    update t_industryp
+    set indp_num = #{indpNum,jdbcType=CHAR},
+      indp_name = #{indpName,jdbcType=VARCHAR},
+      limit_dep_id = #{limitDepId,jdbcType=INTEGER},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, indp_num, indp_name, limit_dep_id, create_r_date, create_time, create_user, 
+    create_username, update_time, ordered, delflag, remark
+    from t_industryp
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, indp_num, indp_name, limit_dep_id, create_r_date, create_time, create_user, 
+    create_username, update_time, ordered, delflag, remark
+    from t_industryp
+  </select>
+</mapper>

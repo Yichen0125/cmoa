@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.ProtaskMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Protask" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pt_num" property="ptNum" jdbcType="VARCHAR" />
+    <result column="ord_id" property="ordId" jdbcType="INTEGER" />
+    <result column="work_type" property="workType" jdbcType="BIT" />
+    <result column="pro_id" property="proId" jdbcType="INTEGER" />
+    <result column="pro_num" property="proNum" jdbcType="VARCHAR" />
+    <result column="pt_pertype" property="ptPertype" jdbcType="BIT" />
+    <result column="pt_perid" property="ptPerid" jdbcType="INTEGER" />
+    <result column="anonymous" property="anonymous" jdbcType="VARCHAR" />
+    <result column="pt_content" property="ptContent" jdbcType="VARCHAR" />
+    <result column="pt_requ" property="ptRequ" jdbcType="VARCHAR" />
+    <result column="pt_accept_time" property="ptAcceptTime" jdbcType="DATE" />
+    <result column="plan_amount" property="planAmount" jdbcType="INTEGER" />
+    <result column="pt_schedule" property="ptSchedule" jdbcType="REAL" />
+    <result column="pt_price" property="ptPrice" jdbcType="DECIMAL" />
+    <result column="is_dish" property="isDish" jdbcType="BIT" />
+    <result column="pt_progress" property="ptProgress" jdbcType="REAL" />
+    <result column="pt_status" property="ptStatus" jdbcType="BIT" />
+    <result column="dish_confirm" property="dishConfirm" jdbcType="BIT" />
+    <result column="pm_confirm" property="pmConfirm" jdbcType="BIT" />
+    <result column="pt_camount" property="ptCamount" jdbcType="INTEGER" />
+    <result column="pt_complete_time" property="ptCompleteTime" jdbcType="DATE" />
+    <result column="pt_cprice" property="ptCprice" jdbcType="DECIMAL" />
+    <result column="pt_cost" property="ptCost" jdbcType="DECIMAL" />
+    <result column="isvaluation" property="isvaluation" jdbcType="BIT" />
+    <result column="pt_total" property="ptTotal" jdbcType="DECIMAL" />
+    <result column="pt_comment" property="ptComment" jdbcType="VARCHAR" />
+    <result column="pt_grade" property="ptGrade" jdbcType="BIT" />
+    <result column="adjr_atio" property="adjrAtio" jdbcType="DOUBLE" />
+    <result column="adj_reason" property="adjReason" jdbcType="VARCHAR" />
+    <result column="pt_payable" property="ptPayable" jdbcType="DECIMAL" />
+    <result column="appr_stat" property="apprStat" jdbcType="BIT" />
+    <result column="appr_uid" property="apprUid" jdbcType="INTEGER" />
+    <result column="appr_time" property="apprTime" jdbcType="DATE" />
+    <result column="ispayment" property="ispayment" jdbcType="BIT" />
+    <result column="amount_paid" property="amountPaid" jdbcType="DECIMAL" />
+    <result column="payment_time" property="paymentTime" jdbcType="DATE" />
+    <result column="payment_confirm" property="paymentConfirm" jdbcType="BIT" />
+    <result column="pconfim_time" property="pconfimTime" jdbcType="DATE" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_protask
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Protask" >
+    insert into t_protask (id, pt_num, ord_id, 
+      work_type, pro_id, pro_num, 
+      pt_pertype, pt_perid, anonymous, 
+      pt_content, pt_requ, pt_accept_time, 
+      plan_amount, pt_schedule, pt_price, 
+      is_dish, pt_progress, pt_status, 
+      dish_confirm, pm_confirm, pt_camount, 
+      pt_complete_time, pt_cprice, pt_cost, 
+      isvaluation, pt_total, pt_comment, 
+      pt_grade, adjr_atio, adj_reason, 
+      pt_payable, appr_stat, appr_uid, 
+      appr_time, ispayment, amount_paid, 
+      payment_time, payment_confirm, pconfim_time, 
+      create_r_date, create_time, create_user, 
+      create_username, update_time, ordered, 
+      delflag, remark)
+    values (#{id,jdbcType=INTEGER}, #{ptNum,jdbcType=VARCHAR}, #{ordId,jdbcType=INTEGER}, 
+      #{workType,jdbcType=BIT}, #{proId,jdbcType=INTEGER}, #{proNum,jdbcType=VARCHAR}, 
+      #{ptPertype,jdbcType=BIT}, #{ptPerid,jdbcType=INTEGER}, #{anonymous,jdbcType=VARCHAR}, 
+      #{ptContent,jdbcType=VARCHAR}, #{ptRequ,jdbcType=VARCHAR}, #{ptAcceptTime,jdbcType=DATE}, 
+      #{planAmount,jdbcType=INTEGER}, #{ptSchedule,jdbcType=REAL}, #{ptPrice,jdbcType=DECIMAL}, 
+      #{isDish,jdbcType=BIT}, #{ptProgress,jdbcType=REAL}, #{ptStatus,jdbcType=BIT}, 
+      #{dishConfirm,jdbcType=BIT}, #{pmConfirm,jdbcType=BIT}, #{ptCamount,jdbcType=INTEGER}, 
+      #{ptCompleteTime,jdbcType=DATE}, #{ptCprice,jdbcType=DECIMAL}, #{ptCost,jdbcType=DECIMAL}, 
+      #{isvaluation,jdbcType=BIT}, #{ptTotal,jdbcType=DECIMAL}, #{ptComment,jdbcType=VARCHAR}, 
+      #{ptGrade,jdbcType=BIT}, #{adjrAtio,jdbcType=DOUBLE}, #{adjReason,jdbcType=VARCHAR}, 
+      #{ptPayable,jdbcType=DECIMAL}, #{apprStat,jdbcType=BIT}, #{apprUid,jdbcType=INTEGER}, 
+      #{apprTime,jdbcType=DATE}, #{ispayment,jdbcType=BIT}, #{amountPaid,jdbcType=DECIMAL}, 
+      #{paymentTime,jdbcType=DATE}, #{paymentConfirm,jdbcType=BIT}, #{pconfimTime,jdbcType=DATE}, 
+      #{createRDate,jdbcType=DATE}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=INTEGER}, 
+      #{createUsername,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{ordered,jdbcType=INTEGER}, 
+      #{delflag,jdbcType=BIT}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Protask" >
+    update t_protask
+    set pt_num = #{ptNum,jdbcType=VARCHAR},
+      ord_id = #{ordId,jdbcType=INTEGER},
+      work_type = #{workType,jdbcType=BIT},
+      pro_id = #{proId,jdbcType=INTEGER},
+      pro_num = #{proNum,jdbcType=VARCHAR},
+      pt_pertype = #{ptPertype,jdbcType=BIT},
+      pt_perid = #{ptPerid,jdbcType=INTEGER},
+      anonymous = #{anonymous,jdbcType=VARCHAR},
+      pt_content = #{ptContent,jdbcType=VARCHAR},
+      pt_requ = #{ptRequ,jdbcType=VARCHAR},
+      pt_accept_time = #{ptAcceptTime,jdbcType=DATE},
+      plan_amount = #{planAmount,jdbcType=INTEGER},
+      pt_schedule = #{ptSchedule,jdbcType=REAL},
+      pt_price = #{ptPrice,jdbcType=DECIMAL},
+      is_dish = #{isDish,jdbcType=BIT},
+      pt_progress = #{ptProgress,jdbcType=REAL},
+      pt_status = #{ptStatus,jdbcType=BIT},
+      dish_confirm = #{dishConfirm,jdbcType=BIT},
+      pm_confirm = #{pmConfirm,jdbcType=BIT},
+      pt_camount = #{ptCamount,jdbcType=INTEGER},
+      pt_complete_time = #{ptCompleteTime,jdbcType=DATE},
+      pt_cprice = #{ptCprice,jdbcType=DECIMAL},
+      pt_cost = #{ptCost,jdbcType=DECIMAL},
+      isvaluation = #{isvaluation,jdbcType=BIT},
+      pt_total = #{ptTotal,jdbcType=DECIMAL},
+      pt_comment = #{ptComment,jdbcType=VARCHAR},
+      pt_grade = #{ptGrade,jdbcType=BIT},
+      adjr_atio = #{adjrAtio,jdbcType=DOUBLE},
+      adj_reason = #{adjReason,jdbcType=VARCHAR},
+      pt_payable = #{ptPayable,jdbcType=DECIMAL},
+      appr_stat = #{apprStat,jdbcType=BIT},
+      appr_uid = #{apprUid,jdbcType=INTEGER},
+      appr_time = #{apprTime,jdbcType=DATE},
+      ispayment = #{ispayment,jdbcType=BIT},
+      amount_paid = #{amountPaid,jdbcType=DECIMAL},
+      payment_time = #{paymentTime,jdbcType=DATE},
+      payment_confirm = #{paymentConfirm,jdbcType=BIT},
+      pconfim_time = #{pconfimTime,jdbcType=DATE},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, pt_num, ord_id, work_type, pro_id, pro_num, pt_pertype, pt_perid, anonymous, 
+    pt_content, pt_requ, pt_accept_time, plan_amount, pt_schedule, pt_price, is_dish, 
+    pt_progress, pt_status, dish_confirm, pm_confirm, pt_camount, pt_complete_time, pt_cprice, 
+    pt_cost, isvaluation, pt_total, pt_comment, pt_grade, adjr_atio, adj_reason, pt_payable, 
+    appr_stat, appr_uid, appr_time, ispayment, amount_paid, payment_time, payment_confirm, 
+    pconfim_time, create_r_date, create_time, create_user, create_username, update_time, 
+    ordered, delflag, remark
+    from t_protask
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, pt_num, ord_id, work_type, pro_id, pro_num, pt_pertype, pt_perid, anonymous, 
+    pt_content, pt_requ, pt_accept_time, plan_amount, pt_schedule, pt_price, is_dish, 
+    pt_progress, pt_status, dish_confirm, pm_confirm, pt_camount, pt_complete_time, pt_cprice, 
+    pt_cost, isvaluation, pt_total, pt_comment, pt_grade, adjr_atio, adj_reason, pt_payable, 
+    appr_stat, appr_uid, appr_time, ispayment, amount_paid, payment_time, payment_confirm, 
+    pconfim_time, create_r_date, create_time, create_user, create_username, update_time, 
+    ordered, delflag, remark
+    from t_protask
+  </select>
+</mapper>

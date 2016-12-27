@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.CuscontactMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Cuscontact" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cc_num" property="ccNum" jdbcType="CHAR" />
+    <result column="isprimary" property="isprimary" jdbcType="BIT" />
+    <result column="cusp_id" property="cuspId" jdbcType="INTEGER" />
+    <result column="cus_id" property="cusId" jdbcType="INTEGER" />
+    <result column="cc_name" property="ccName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="cc_adress" property="ccAdress" jdbcType="VARCHAR" />
+    <result column="hobbies" property="hobbies" jdbcType="VARCHAR" />
+    <result column="cc_email" property="ccEmail" jdbcType="VARCHAR" />
+    <result column="birth" property="birth" jdbcType="DATE" />
+    <result column="cc_dept" property="ccDept" jdbcType="INTEGER" />
+    <result column="duties" property="duties" jdbcType="VARCHAR" />
+    <result column="cc_qq" property="ccQq" jdbcType="VARCHAR" />
+    <result column="cc_tel" property="ccTel" jdbcType="VARCHAR" />
+    <result column="cc_fax" property="ccFax" jdbcType="VARCHAR" />
+    <result column="cc_wx" property="ccWx" jdbcType="VARCHAR" />
+    <result column="cc_mphone" property="ccMphone" jdbcType="INTEGER" />
+    <result column="cc_career" property="ccCareer" jdbcType="VARCHAR" />
+    <result column="cc_desp" property="ccDesp" jdbcType="VARCHAR" />
+    <result column="cc_gwqk" property="ccGwqk" jdbcType="VARCHAR" />
+    <result column="cc_cgljs" property="ccCgljs" jdbcType="BIT" />
+    <result column="cc_fylx" property="ccFylx" jdbcType="BIT" />
+    <result column="cc_jczyd" property="ccJczyd" jdbcType="BIT" />
+    <result column="cc_xqfl" property="ccXqfl" jdbcType="TINYINT" />
+    <result column="cc_xqms" property="ccXqms" jdbcType="VARCHAR" />
+    <result column="cc_fgzcdms" property="ccFgzcdms" jdbcType="TINYINT" />
+    <result column="cc_pjreason" property="ccPjreason" jdbcType="VARCHAR" />
+    <result column="cc_motiv" property="ccMotiv" jdbcType="VARCHAR" />
+    <result column="cc_social" property="ccSocial" jdbcType="VARCHAR" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_cuscontact
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Cuscontact" >
+    insert into t_cuscontact (id, cc_num, isprimary, 
+      cusp_id, cus_id, cc_name, 
+      sex, cc_adress, hobbies, 
+      cc_email, birth, cc_dept, 
+      duties, cc_qq, cc_tel, 
+      cc_fax, cc_wx, cc_mphone, 
+      cc_career, cc_desp, cc_gwqk, 
+      cc_cgljs, cc_fylx, cc_jczyd, cc_xqfl, 
+      cc_xqms, cc_fgzcdms, cc_pjreason, 
+      cc_motiv, cc_social, create_r_date, 
+      create_time, create_user, create_username, 
+      update_time, ordered, delflag, 
+      remark)
+    values (#{id,jdbcType=INTEGER}, #{ccNum,jdbcType=CHAR}, #{isprimary,jdbcType=BIT}, 
+      #{cuspId,jdbcType=INTEGER}, #{cusId,jdbcType=INTEGER}, #{ccName,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=BIT}, #{ccAdress,jdbcType=VARCHAR}, #{hobbies,jdbcType=VARCHAR}, 
+      #{ccEmail,jdbcType=VARCHAR}, #{birth,jdbcType=DATE}, #{ccDept,jdbcType=INTEGER}, 
+      #{duties,jdbcType=VARCHAR}, #{ccQq,jdbcType=VARCHAR}, #{ccTel,jdbcType=VARCHAR}, 
+      #{ccFax,jdbcType=VARCHAR}, #{ccWx,jdbcType=VARCHAR}, #{ccMphone,jdbcType=INTEGER}, 
+      #{ccCareer,jdbcType=VARCHAR}, #{ccDesp,jdbcType=VARCHAR}, #{ccGwqk,jdbcType=VARCHAR}, 
+      #{ccCgljs,jdbcType=BIT}, #{ccFylx,jdbcType=BIT}, #{ccJczyd,jdbcType=BIT}, #{ccXqfl,jdbcType=TINYINT}, 
+      #{ccXqms,jdbcType=VARCHAR}, #{ccFgzcdms,jdbcType=TINYINT}, #{ccPjreason,jdbcType=VARCHAR}, 
+      #{ccMotiv,jdbcType=VARCHAR}, #{ccSocial,jdbcType=VARCHAR}, #{createRDate,jdbcType=DATE}, 
+      #{createTime,jdbcType=DATE}, #{createUser,jdbcType=INTEGER}, #{createUsername,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=DATE}, #{ordered,jdbcType=INTEGER}, #{delflag,jdbcType=BIT}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Cuscontact" >
+    update t_cuscontact
+    set cc_num = #{ccNum,jdbcType=CHAR},
+      isprimary = #{isprimary,jdbcType=BIT},
+      cusp_id = #{cuspId,jdbcType=INTEGER},
+      cus_id = #{cusId,jdbcType=INTEGER},
+      cc_name = #{ccName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=BIT},
+      cc_adress = #{ccAdress,jdbcType=VARCHAR},
+      hobbies = #{hobbies,jdbcType=VARCHAR},
+      cc_email = #{ccEmail,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=DATE},
+      cc_dept = #{ccDept,jdbcType=INTEGER},
+      duties = #{duties,jdbcType=VARCHAR},
+      cc_qq = #{ccQq,jdbcType=VARCHAR},
+      cc_tel = #{ccTel,jdbcType=VARCHAR},
+      cc_fax = #{ccFax,jdbcType=VARCHAR},
+      cc_wx = #{ccWx,jdbcType=VARCHAR},
+      cc_mphone = #{ccMphone,jdbcType=INTEGER},
+      cc_career = #{ccCareer,jdbcType=VARCHAR},
+      cc_desp = #{ccDesp,jdbcType=VARCHAR},
+      cc_gwqk = #{ccGwqk,jdbcType=VARCHAR},
+      cc_cgljs = #{ccCgljs,jdbcType=BIT},
+      cc_fylx = #{ccFylx,jdbcType=BIT},
+      cc_jczyd = #{ccJczyd,jdbcType=BIT},
+      cc_xqfl = #{ccXqfl,jdbcType=TINYINT},
+      cc_xqms = #{ccXqms,jdbcType=VARCHAR},
+      cc_fgzcdms = #{ccFgzcdms,jdbcType=TINYINT},
+      cc_pjreason = #{ccPjreason,jdbcType=VARCHAR},
+      cc_motiv = #{ccMotiv,jdbcType=VARCHAR},
+      cc_social = #{ccSocial,jdbcType=VARCHAR},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, cc_num, isprimary, cusp_id, cus_id, cc_name, sex, cc_adress, hobbies, 
+    cc_email, birth, cc_dept, duties, cc_qq, cc_tel, cc_fax, cc_wx, cc_mphone, cc_career, 
+    cc_desp, cc_gwqk, cc_cgljs, cc_fylx, cc_jczyd, cc_xqfl, cc_xqms, cc_fgzcdms, cc_pjreason, 
+    cc_motiv, cc_social, create_r_date, create_time, create_user, create_username, update_time, 
+    ordered, delflag, remark
+    from t_cuscontact
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, cc_num, isprimary, cusp_id, cus_id, cc_name, sex, cc_adress, hobbies, 
+    cc_email, birth, cc_dept, duties, cc_qq, cc_tel, cc_fax, cc_wx, cc_mphone, cc_career, 
+    cc_desp, cc_gwqk, cc_cgljs, cc_fylx, cc_jczyd, cc_xqfl, cc_xqms, cc_fgzcdms, cc_pjreason, 
+    cc_motiv, cc_social, create_r_date, create_time, create_user, create_username, update_time, 
+    ordered, delflag, remark
+    from t_cuscontact
+  </select>
+</mapper>

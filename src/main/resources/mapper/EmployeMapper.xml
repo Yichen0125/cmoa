@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.EmployeMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Employe" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="emp_num" property="empNum" jdbcType="CHAR" />
+    <result column="dept_id" property="deptId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="name_ch" property="nameCh" jdbcType="VARCHAR" />
+    <result column="name_en" property="nameEn" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="TINYINT" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="birth" property="birth" jdbcType="DATE" />
+    <result column="marriage" property="marriage" jdbcType="BIT" />
+    <result column="education" property="education" jdbcType="TINYINT" />
+    <result column="profession" property="profession" jdbcType="VARCHAR" />
+    <result column="bank" property="bank" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="duties" property="duties" jdbcType="TINYINT" />
+    <result column="entry_date" property="entryDate" jdbcType="DATE" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="salary" property="salary" jdbcType="DOUBLE" />
+    <result column="status" property="status" jdbcType="BIT" />
+    <result column="Leaving_date" property="leavingDate" jdbcType="DATE" />
+    <result column="Leaving_reason" property="leavingReason" jdbcType="VARCHAR" />
+    <result column="Signed" property="signed" jdbcType="BIT" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="Ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_employe
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Employe" >
+    insert into t_employe (id, emp_num, dept_id, 
+      user_id, name_ch, name_en, 
+      age, id_number, sex, nation, 
+      photo, birth, marriage, education, 
+      profession, bank, bank_account, 
+      address, phone, email, 
+      duties, entry_date, description, 
+      salary, status, Leaving_date, 
+      Leaving_reason, Signed, create_r_date, 
+      create_time, create_username, create_user, 
+      update_time, Ordered, delflag, 
+      remark)
+    values (#{id,jdbcType=INTEGER}, #{empNum,jdbcType=CHAR}, #{deptId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{nameCh,jdbcType=VARCHAR}, #{nameEn,jdbcType=VARCHAR}, 
+      #{age,jdbcType=TINYINT}, #{idNumber,jdbcType=VARCHAR}, #{sex,jdbcType=BIT}, #{nation,jdbcType=VARCHAR}, 
+      #{photo,jdbcType=VARCHAR}, #{birth,jdbcType=DATE}, #{marriage,jdbcType=BIT}, #{education,jdbcType=TINYINT}, 
+      #{profession,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{bankAccount,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{duties,jdbcType=TINYINT}, #{entryDate,jdbcType=DATE}, #{description,jdbcType=VARCHAR}, 
+      #{salary,jdbcType=DOUBLE}, #{status,jdbcType=BIT}, #{leavingDate,jdbcType=DATE}, 
+      #{leavingReason,jdbcType=VARCHAR}, #{signed,jdbcType=BIT}, #{createRDate,jdbcType=DATE}, 
+      #{createTime,jdbcType=DATE}, #{createUsername,jdbcType=VARCHAR}, #{createUser,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=DATE}, #{ordered,jdbcType=INTEGER}, #{delflag,jdbcType=BIT}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Employe" >
+    update t_employe
+    set emp_num = #{empNum,jdbcType=CHAR},
+      dept_id = #{deptId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      name_ch = #{nameCh,jdbcType=VARCHAR},
+      name_en = #{nameEn,jdbcType=VARCHAR},
+      age = #{age,jdbcType=TINYINT},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=BIT},
+      nation = #{nation,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=DATE},
+      marriage = #{marriage,jdbcType=BIT},
+      education = #{education,jdbcType=TINYINT},
+      profession = #{profession,jdbcType=VARCHAR},
+      bank = #{bank,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      duties = #{duties,jdbcType=TINYINT},
+      entry_date = #{entryDate,jdbcType=DATE},
+      description = #{description,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=DOUBLE},
+      status = #{status,jdbcType=BIT},
+      Leaving_date = #{leavingDate,jdbcType=DATE},
+      Leaving_reason = #{leavingReason,jdbcType=VARCHAR},
+      Signed = #{signed,jdbcType=BIT},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=DATE},
+      Ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, emp_num, dept_id, user_id, name_ch, name_en, age, id_number, sex, nation, 
+    photo, birth, marriage, education, profession, bank, bank_account, address, phone, 
+    email, duties, entry_date, description, salary, status, Leaving_date, Leaving_reason, 
+    Signed, create_r_date, create_time, create_username, create_user, update_time, Ordered, 
+    delflag, remark
+    from t_employe
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select e.id, e.emp_num, e.dept_id, e.user_id, e.name_ch, e.name_en, e.age, e.id_number, e.sex, e.nation, 
+    e.photo, e.birth, e.marriage, e.education, e.profession, e.bank, e.bank_account, e.address, e.phone, 
+    e.email, e.duties, e.entry_date, e.description, e.salary, e.status, e.Leaving_date, e.Leaving_reason, 
+    e.Signed, e.create_r_date, e.create_time, e.create_username, e.create_user, e.update_time, e.Ordered, 
+    e.delflag, e.remark ,d.id as "dept.id", dept_name as "dept.deptName"
+    from t_employe e left outer join t_department d
+    on e.dept_id = d.id
+    where e.delflag = false 
+    <include refid="getPageQuery"/>
+  </select>
+  
+  <select id="selectPage" resultType="com.cmoa.besteasy.entities.Employe" >
+    select e.id, e.emp_num, e.dept_id, e.user_id, e.name_ch, e.name_en, e.age, e.id_number, e.sex, e.nation, 
+    e.photo, e.birth, e.marriage, e.education, e.profession, e.bank, e.bank_account, e.address, e.phone, 
+    e.email, e.duties, e.entry_date, e.description, e.salary, e.status, e.Leaving_date, e.Leaving_reason, 
+    e.Signed, e.create_r_date, e.create_time, e.create_username, e.create_user, e.update_time, e.Ordered, 
+    e.delflag, e.remark ,d.id as "dept.id", dept_name as "dept.deptName"
+    from t_employe e left outer join t_department d
+    on e.dept_id = d.id
+    <include refid="getPageQuery"/>
+  </select>
+  <sql id="getPageQuery">
+  	<where>
+  			e.delflag = false 
+  			
+			<if test="empName != null">
+				and e.name_ch like #{empName}
+			</if>
+			<if test="deptName != null and deptName != ''">
+				and d.dept_name = #{deptName}
+			</if>
+		</where>
+  </sql>
+  
+</mapper>

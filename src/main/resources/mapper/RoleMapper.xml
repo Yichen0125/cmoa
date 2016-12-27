@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmoa.besteasy.mappers.RoleMapper">
+
+	<select id="getRoleByName" resultType="com.cmoa.besteasy.entities.Role">
+		SELECT id, description, enabled, name
+		FROM t_roles
+		where name = #{roleName}
+	</select>
+	
+	<update id="updateEnabled">
+		UPDATE t_roles SET enabled = #{enabled} WHERE id = #{id}
+	</update>
+
+	<select id="getRoleList" resultType="com.cmoa.besteasy.entities.Role">
+		SELECT id, description, enabled, name
+		FROM t_roles
+	</select>
+	
+	<insert id="saveRoleAuthority" parameterType="HashMap">
+		INSERT INTO t_role_authority (role_id, authority_id)
+		SELECT #{id}, s.* FROM(
+		<foreach collection="authorities" item="authority" separator="union all" index="index">
+		SELECT 
+			#{authority}
+		FROM dual
+		</foreach>
+		) s
+	</insert>
+
+	<delete id="deleteRoleAuthorityById">
+		DELETE FROM t_role_authority
+		WHERE role_id = #{id}
+	</delete>
+
+	<resultMap type="com.cmoa.besteasy.entities.Role" id="getRole">
+		<id column="id" property="id" />
+		<result column="description" property="description" />
+		<result column="enabled" property="enabled" />
+		<result column="rName" property="name" />
+		<collection property="authorities" javaType="com.cmoa.besteasy.entities.Authority">
+			<id column="aId" property="id" />
+			<result column="aName" property="name" />
+			<result column="display_name" property="displayName" />
+			<result column="permissions" property="permissions" />
+			<result column="url" property="url" />
+		</collection>
+	</resultMap>
+
+	<select id="getById" resultMap="getRole">
+		SELECT r.id, description,
+		enabled, r.name AS "rName",
+		a.id AS "aId", a.name AS "aName", display_name, permissions, url
+		FROM t_roles
+		r
+		LEFT OUTER JOIN t_role_authority ra
+		ON r.id = ra.role_id
+		LEFT OUTER JOIN
+		t_authorities a
+		ON ra.authority_id = a.id
+		WHERE r.id = #{id}
+	</select>
+
+	<insert id="create">
+		INSERT INTO t_roles( name, description, enabled)
+		VALUES ( #{name}, #{description}, #{enabled})
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM t_roles
+		WHERE id = #{id}
+	</delete>
+
+	<select id="getTotalElements" resultType="long">
+		SELECT count(id)
+		FROM
+		t_roles
+	</select>
+
+	<select id="getContent" resultType="com.cmoa.besteasy.entities.Role">
+		<!-- SELECT *
+		FROM( -->
+		SELECT id, description, enabled, name
+		FROM t_roles
+	<!--	) s
+		 <![CDATA[
+		WHERE rn >= #{fromIndex} AND rn < #{endIndex}
+		]]> -->
+	</select>
+	
+	<select id="getAllList" resultType="com.cmoa.besteasy.entities.Role">
+		select
+		id,description,enabled,name from t_roles where enabled = 1
+	</select>
+
+</mapper>

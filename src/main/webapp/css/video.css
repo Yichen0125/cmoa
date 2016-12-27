@@ -1,0 +1,154 @@
+section{
+	width: 100%;
+	margin:0 auto;
+}
+section:before{
+	content: "";
+	display: table;
+}
+section:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+div#videoDiv{
+	position: relative;
+	width: 50%;
+	float: left;
+}
+
+div#videoDiv div.videoDiv{
+	position: relative;
+}
+div#videoDiv div.videoDiv video{
+	width: 100%;
+}
+
+/*文字图层样式*/
+/*div#videoDiv div.videoDiv div.subtitle{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+}
+div#videoDiv div.videoDiv div.subtitle p{
+	padding: 0 20px;
+	margin:5px 0;
+}*/
+/*暂停图层*/
+/*div#videoDiv div.videoDiv div.maskLayer{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}*/
+div#videoDiv div.progress{
+	position: relative;
+	width: 100%;
+	height: 22px;
+}
+div#videoDiv div.progress:hover{
+	cursor: pointer;
+}
+div#videoDiv div.progress span{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border:1px solid #999;
+	background-color:#999;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+div#videoDiv div.progress div.progressDiv{
+	
+	height: 50%;
+	border-radius: 10px;
+	position: absolute;
+	top: 25%;
+	left: 0;
+	z-index:-10; 
+	background-color: #38b7f8;
+}
+div#videoDiv div.progress div.line{
+	width: 100%;
+	border:1px solid #000;
+	position: absolute;
+	top:50%;
+	z-index:-20; 
+}
+div#videoDiv div.buttonDiv{
+	margin-top: 10px;
+}
+div#videoDiv div.buttonDiv:before{
+	content: "";
+	display: table;
+}
+div#videoDiv div.buttonDiv:after{
+	content: "";
+	display: table;
+}
+div#videoDiv div.buttonDiv ul{
+	margin:0;
+	padding: 0;
+}
+div#videoDiv div.buttonDiv ul li{
+	margin:0;
+	padding: 0;
+	list-style-type: none;
+}
+
+div#videoDiv div.buttonDiv>ul>li{
+	float: left;
+	margin:0 3px; 
+}
+div#videoDiv div.buttonDiv>ul>li>a{
+	text-decoration: none;
+	color: #000;
+	border:1px solid #000; 
+	width: 100%;
+	height: 100%;
+	padding: 5px 5px;
+}
+div#videoDiv div.buttonDiv>ul>li.urlLi{
+	position: relative;
+}
+div#videoDiv div.buttonDiv>ul>li>ul{
+	position: absolute;
+	top: 23px;
+	left: 0;
+	width: 100%;
+	display: none;
+}
+div#videoDiv div.buttonDiv>ul>li>ul>li{
+	z-index: 10;
+	text-align: center;
+	cursor: pointer;
+	border-bottom: 1px solid transparent;
+}
+div#videoDiv div.buttonDiv>ul>li>ul>li:hover{
+	border-bottom: 1px solid #000;
+}
+div#videoDiv div.buttonDiv>ul>li.urlLi:hover>ul{
+	display: block;
+}
+div#videoDiv div.buttonDiv>ul>li>ul:hover{
+	display: block;
+}
+div#editorSubtitle{
+	width: 50%;
+	float: right;
+}
+div#editorSubtitle form{
+	margin: 20px 10px 0 20px;
+}
+div#editorSubtitle form textarea{
+	display: block;
+	width: 100%;
+	min-height: 500px;
+	margin-top: 10px;
+}
