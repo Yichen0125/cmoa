@@ -126,7 +126,6 @@
     from t_employe e left outer join t_department d
     on e.dept_id = d.id
     where e.delflag = false 
-    <include refid="getPageQuery"/>
   </select>
   
   <select id="selectPage" resultType="com.cmoa.besteasy.entities.Employe" >

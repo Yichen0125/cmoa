@@ -60,4 +60,8 @@ public class RoleService {
 	public Role getRoleByName(String roleName) {
 		return roleMapper.getRoleByName(roleName);
 	}
+
+	public List<Role> getHasRoleList() {
+		return roleMapper.getHasRoleList();
+	}
 }

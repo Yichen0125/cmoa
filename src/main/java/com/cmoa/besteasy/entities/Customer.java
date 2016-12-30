@@ -2,6 +2,8 @@ package com.cmoa.besteasy.entities;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Customer {
     private Integer id;
 
@@ -21,17 +23,17 @@ public class Customer {
 
     private Integer cusIndustry;
 
-    private Boolean cusType;
+    private Integer cusType;
 
-    private Boolean cusNature;
+    private Integer cusNature;
 
     private String address;
 
     private String addressEn;
 
-    private Byte source;
+    private Integer source;
 
-    private Boolean isapproval;
+    private Integer isapproval;
 
     private Integer approval;
 
@@ -39,7 +41,7 @@ public class Customer {
 
     private Integer xdeReal;
 
-    private Boolean level;
+    private Integer level;
 
     private String bank;
 
@@ -51,32 +53,32 @@ public class Customer {
 
     private String opponentName;
 
-    private Boolean opponentPosition;
+    private Integer opponentPosition;
 
-    private Boolean opponentStage;
+    private Integer opponentStage;
 
     private Integer khtpAction;
 
     private Integer cdl;
 
-    private Byte myd;
+    private Integer myd;
 
-    private Byte xyd;
+    private Integer xyd;
 
-    private Boolean status;
+    private Integer status;
 
     private String drainReason;
 
     private String drainStrategy;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createRDate;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     private Integer createUser;
 
     private String createUsername;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     private Integer ordered;
@@ -157,19 +159,19 @@ public class Customer {
         this.cusIndustry = cusIndustry;
     }
 
-    public Boolean getCusType() {
+    public Integer getCusType() {
         return cusType;
     }
 
-    public void setCusType(Boolean cusType) {
+    public void setCusType(Integer cusType) {
         this.cusType = cusType;
     }
 
-    public Boolean getCusNature() {
+    public Integer getCusNature() {
         return cusNature;
     }
 
-    public void setCusNature(Boolean cusNature) {
+    public void setCusNature(Integer cusNature) {
         this.cusNature = cusNature;
     }
 
@@ -189,19 +191,19 @@ public class Customer {
         this.addressEn = addressEn == null ? null : addressEn.trim();
     }
 
-    public Byte getSource() {
+    public Integer getSource() {
         return source;
     }
 
-    public void setSource(Byte source) {
+    public void setSource(Integer source) {
         this.source = source;
     }
 
-    public Boolean getIsapproval() {
+    public Integer getIsapproval() {
         return isapproval;
     }
 
-    public void setIsapproval(Boolean isapproval) {
+    public void setIsapproval(Integer isapproval) {
         this.isapproval = isapproval;
     }
 
@@ -229,11 +231,11 @@ public class Customer {
         this.xdeReal = xdeReal;
     }
 
-    public Boolean getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(Boolean level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 
@@ -277,19 +279,19 @@ public class Customer {
         this.opponentName = opponentName == null ? null : opponentName.trim();
     }
 
-    public Boolean getOpponentPosition() {
+    public Integer getOpponentPosition() {
         return opponentPosition;
     }
 
-    public void setOpponentPosition(Boolean opponentPosition) {
+    public void setOpponentPosition(Integer opponentPosition) {
         this.opponentPosition = opponentPosition;
     }
 
-    public Boolean getOpponentStage() {
+    public Integer getOpponentStage() {
         return opponentStage;
     }
 
-    public void setOpponentStage(Boolean opponentStage) {
+    public void setOpponentStage(Integer opponentStage) {
         this.opponentStage = opponentStage;
     }
 
@@ -309,27 +311,27 @@ public class Customer {
         this.cdl = cdl;
     }
 
-    public Byte getMyd() {
+    public Integer getMyd() {
         return myd;
     }
 
-    public void setMyd(Byte myd) {
+    public void setMyd(Integer myd) {
         this.myd = myd;
     }
 
-    public Byte getXyd() {
+    public Integer getXyd() {
         return xyd;
     }
 
-    public void setXyd(Byte xyd) {
+    public void setXyd(Integer xyd) {
         this.xyd = xyd;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

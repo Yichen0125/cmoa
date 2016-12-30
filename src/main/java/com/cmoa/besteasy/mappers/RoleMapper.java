@@ -30,4 +30,8 @@ public interface RoleMapper {
 	void updateEnabled(@Param("id") int id,@Param("enabled") boolean enabled);
 
 	Role getRoleByName(String roleName);
+
+	//获取拥有授权权限的 角色 集合        --获取 项目经理集合
+	List<Role> getHasRoleList();
+	
 }

@@ -15,7 +15,7 @@
 			$("img[id^='update-']").click(function(){
 				var id = this.id.split("-")[1];
 				
-				window.location.href = "${ctp}/user/toEditUI/"+id;
+				window.location.href = "${ctp}/yx/order/toEditUI/"+id;
 			})
 			
 			$("img[id^='delete-']").click(function(){
@@ -116,7 +116,7 @@
 			<%@include file="/commons/pageHelper.jsp" %>
 			
 		</c:if>
-		<c:if test="${userList == null ||totalElements == 0 }">
+		<c:if test="${orderList == null ||totalElements == 0 }">
 			没有任何数据
 		</c:if>
 	</form>

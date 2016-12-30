@@ -25,8 +25,6 @@ public class Staff {
 
     private String expert;
 
-    private Integer directionType;
-
     private String directionPrice;
 
     private String adress;
@@ -39,15 +37,15 @@ public class Staff {
 
     private String qq;
 
-    private Boolean attitude;
+    private Short attitude;
 
     private String occupation;
 
-    private Byte tranYears;
+    private Short tranYears;
 
     private String graduate;
 
-    private Boolean education;
+    private Short education;
 
     private String profession;
 
@@ -61,7 +59,7 @@ public class Staff {
 
     private String bankAccount;
 
-    private Boolean stafStatus;
+    private Short stafStatus;
 
     private Integer denseLevel;
 
@@ -169,14 +167,6 @@ public class Staff {
         this.expert = expert == null ? null : expert.trim();
     }
 
-    public Integer getDirectionType() {
-        return directionType;
-    }
-
-    public void setDirectionType(Integer directionType) {
-        this.directionType = directionType;
-    }
-
     public String getDirectionPrice() {
         return directionPrice;
     }
@@ -225,11 +215,11 @@ public class Staff {
         this.qq = qq == null ? null : qq.trim();
     }
 
-    public Boolean getAttitude() {
+    public Short getAttitude() {
         return attitude;
     }
 
-    public void setAttitude(Boolean attitude) {
+    public void setAttitude(Short attitude) {
         this.attitude = attitude;
     }
 
@@ -241,11 +231,11 @@ public class Staff {
         this.occupation = occupation == null ? null : occupation.trim();
     }
 
-    public Byte getTranYears() {
+    public Short getTranYears() {
         return tranYears;
     }
 
-    public void setTranYears(Byte tranYears) {
+    public void setTranYears(Short tranYears) {
         this.tranYears = tranYears;
     }
 
@@ -257,11 +247,11 @@ public class Staff {
         this.graduate = graduate == null ? null : graduate.trim();
     }
 
-    public Boolean getEducation() {
+    public Short getEducation() {
         return education;
     }
 
-    public void setEducation(Boolean education) {
+    public void setEducation(Short education) {
         this.education = education;
     }
 
@@ -313,11 +303,11 @@ public class Staff {
         this.bankAccount = bankAccount == null ? null : bankAccount.trim();
     }
 
-    public Boolean getStafStatus() {
+    public Short getStafStatus() {
         return stafStatus;
     }
 
-    public void setStafStatus(Boolean stafStatus) {
+    public void setStafStatus(Short stafStatus) {
         this.stafStatus = stafStatus;
     }
 

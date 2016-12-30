@@ -61,5 +61,9 @@ public class EmpService {
 		emp.setUpdateTime(new Date());
 		employeeMapper.updateByPrimaryKey(emp);
 	}
+
+	public List<Employe> selectAll() {
+		return employeeMapper.selectAll();
+	}
 	
 }

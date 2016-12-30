@@ -15,7 +15,7 @@
 			$("img[id^='update-']").click(function(){
 				var id = this.id.split("-")[1];
 				
-				window.location.href = "${ctp}/user/toEditUI/"+id;
+				window.location.href = "${ctp}/yx/customer/toEditUI/"+id;
 			})
 			
 			$("img[id^='delete-']").click(function(){
@@ -42,7 +42,7 @@
 </head>
 
 <body class="main">
-	<form action="${ctp }/user/list">
+	<form action="${ctp }/yx/customer/list">
 		<div class="page_title">
 			客户管理
 		</div>
@@ -56,10 +56,44 @@
 			cellSpacing="0">
 			<tr>
 				<th class="input_title">
-					客户名称
+					客户中文名称
 				</th>
 				<td class="input_content">
-					<input type="text" name="search_LIKES_cusName" value="${param.search_LIKES_cusName }"/>
+					<input type="text" name="search_LIKES_cusNameZh" value="${param.search_LIKES_cusNameZh }"/>
+				</td>
+				<th class="input_title">
+					客户英文名称
+				</th>
+				<td class="input_content">
+					<input type="text" name="search_LIKES_cusNameEn" value="${param.search_LIKES_cusNameEn }"/>
+				</td>
+				<th class="input_title">
+					状态
+				</th>
+				<td>
+					<select name="search_EQS_status">
+							<option value="">全部</option>
+							<option value="1" <c:if test="${param.search_EQS_status == 1 }">
+								selected="selected"
+							</c:if> >
+							正常
+							</option>
+							<option value="2" <c:if test="${param.search_EQS_status == 2 }">
+								selected="selected"
+							</c:if> >
+							流失预警
+							</option>
+							<option value="3" <c:if test="${param.search_EQS_status == 3 }">
+								selected="selected"
+							</c:if> >
+							暂缓流失
+							</option>
+							<option value="4" <c:if test="${param.search_EQS_status == 4 }">
+								selected="selected"
+							</c:if> >
+							流失
+							</option>
+					</select>
 				</td>
 			</tr>
 		</table>
@@ -74,7 +108,7 @@
 						编号
 					</th>
 					<th class="data_title" style="width: 50%;">
-						用户名
+						客户名
 					</th>
 					<th class="data_title" style="width: 20%;">
 						状态
@@ -89,16 +123,27 @@
 						${cus.id}
 						</td>
 						<td id="nameLable" class="data_cell" style="text-align: center;">
-						${cus.cuspName}
+						${cus.cusNameZh}
 						</td>
-						<td class="data_cell">
-						${cus.cuspEname}
+						<td class="data_cell"  align="center">
+							<c:if test="${cus.status == 1}">
+								正常
+							</c:if>
+							<c:if test="${cus.status == 2}">
+								警告
+							</c:if>
+							<c:if test="${cus.status == 3}">
+								暂缓流失
+							</c:if>
+							<c:if test="${cus.status == 4}">
+								流失
+							</c:if>
 						</td>
 						
-						<td class="data_cell">
-							<img id="delete-${user.id}"
+						<td class="data_cell"  align="center">
+							<img id="delete-${cus.id}"
 								title="删除" src="${ctp }/static/images/bt_del.gif" class="op_button" />
-							<img id="update-${user.id}"
+							<img id="update-${cus.id}"
 								class="op_button" src="${ctp }/static/images/bt_edit.gif" title="编辑" />
 						</td>
 					</tr>

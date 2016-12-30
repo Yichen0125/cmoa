@@ -1,7 +1,9 @@
 package com.cmoa.besteasy.mappers;
 
-import com.cmoa.besteasy.entities.Customer;
 import java.util.List;
+import java.util.Map;
+
+import com.cmoa.besteasy.entities.Customer;
 
 public interface CustomerMapper {
     int deleteByPrimaryKey(Integer id);
@@ -13,4 +15,7 @@ public interface CustomerMapper {
     List<Customer> selectAll();
 
     int updateByPrimaryKey(Customer record);
+
+	List<Customer> selectPage(Map<String, Object> myBatisParmas);
+    
 }

@@ -3,7 +3,9 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cmoa.besteasy.mappers.RoleMapper">
-
+	<select id="getHasRoleList" resultType="com.cmoa.besteasy.entities.Role">
+	select * from t_roles where `name` = "管理员" or `name` = "总经理" or `name` = "项目总监" or `name` = "项目助理"
+	</select>
 	<select id="getRoleByName" resultType="com.cmoa.besteasy.entities.Role">
 		SELECT id, description, enabled, name
 		FROM t_roles
@@ -94,5 +96,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select
 		id,description,enabled,name from t_roles where enabled = 1
 	</select>
-
 </mapper>

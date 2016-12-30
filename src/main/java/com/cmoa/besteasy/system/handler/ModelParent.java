@@ -16,6 +16,8 @@ public class ModelParent {
 	protected static Map<Integer, String>  status = new HashMap<Integer, String>();
 	protected static Map<Integer, String>  signed = new HashMap<Integer, String>();
 	
+	
+	
 	static {
 		allStatus.put(1, "有效");
 		allStatus.put(0, "无效");

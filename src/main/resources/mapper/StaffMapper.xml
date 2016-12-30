@@ -13,25 +13,24 @@
     <result column="birth" property="birth" jdbcType="DATE" />
     <result column="tran_type" property="tranType" jdbcType="TINYINT" />
     <result column="expert" property="expert" jdbcType="VARCHAR" />
-    <result column="direction_type" property="directionType" jdbcType="INTEGER" />
     <result column="direction_price" property="directionPrice" jdbcType="VARCHAR" />
     <result column="adress" property="adress" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="mobile" property="mobile" jdbcType="CHAR" />
     <result column="Email" property="email" jdbcType="VARCHAR" />
     <result column="QQ" property="qq" jdbcType="VARCHAR" />
-    <result column="attitude" property="attitude" jdbcType="BIT" />
+    <result column="attitude" property="attitude" jdbcType="SMALLINT" />
     <result column="occupation" property="occupation" jdbcType="VARCHAR" />
-    <result column="tran_years" property="tranYears" jdbcType="TINYINT" />
+    <result column="tran_years" property="tranYears" jdbcType="SMALLINT" />
     <result column="graduate" property="graduate" jdbcType="VARCHAR" />
-    <result column="education" property="education" jdbcType="BIT" />
+    <result column="education" property="education" jdbcType="SMALLINT" />
     <result column="profession" property="profession" jdbcType="VARCHAR" />
     <result column="grade" property="grade" jdbcType="VARCHAR" />
     <result column="score" property="score" jdbcType="DOUBLE" />
     <result column="ID_card" property="idCard" jdbcType="VARCHAR" />
     <result column="bank" property="bank" jdbcType="VARCHAR" />
     <result column="bank_account" property="bankAccount" jdbcType="CHAR" />
-    <result column="staf_status" property="stafStatus" jdbcType="BIT" />
+    <result column="staf_status" property="stafStatus" jdbcType="SMALLINT" />
     <result column="Dense_level" property="denseLevel" jdbcType="INTEGER" />
     <result column="protocol" property="protocol" jdbcType="BIT" />
     <result column="create_r_date" property="createRDate" jdbcType="DATE" />
@@ -50,9 +49,9 @@
     insert into t_staff (id, staf_num, staf_type, 
       staf_name, staf_alias, work_type, 
       language, sex, birth, tran_type, 
-      expert, direction_type, direction_price, 
-      adress, phone, mobile, 
-      Email, QQ, attitude, occupation, 
+      expert, direction_price, adress, 
+      phone, mobile, Email, 
+      QQ, attitude, occupation, 
       tran_years, graduate, education, 
       profession, grade, score, 
       ID_card, bank, bank_account, 
@@ -63,13 +62,13 @@
     values (#{id,jdbcType=INTEGER}, #{stafNum,jdbcType=CHAR}, #{stafType,jdbcType=INTEGER}, 
       #{stafName,jdbcType=VARCHAR}, #{stafAlias,jdbcType=VARCHAR}, #{workType,jdbcType=BIT}, 
       #{language,jdbcType=VARCHAR}, #{sex,jdbcType=BIT}, #{birth,jdbcType=DATE}, #{tranType,jdbcType=TINYINT}, 
-      #{expert,jdbcType=VARCHAR}, #{directionType,jdbcType=INTEGER}, #{directionPrice,jdbcType=VARCHAR}, 
-      #{adress,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, 
-      #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{attitude,jdbcType=BIT}, #{occupation,jdbcType=VARCHAR}, 
-      #{tranYears,jdbcType=TINYINT}, #{graduate,jdbcType=VARCHAR}, #{education,jdbcType=BIT}, 
+      #{expert,jdbcType=VARCHAR}, #{directionPrice,jdbcType=VARCHAR}, #{adress,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, #{email,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{attitude,jdbcType=SMALLINT}, #{occupation,jdbcType=VARCHAR}, 
+      #{tranYears,jdbcType=SMALLINT}, #{graduate,jdbcType=VARCHAR}, #{education,jdbcType=SMALLINT}, 
       #{profession,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{score,jdbcType=DOUBLE}, 
       #{idCard,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{bankAccount,jdbcType=CHAR}, 
-      #{stafStatus,jdbcType=BIT}, #{denseLevel,jdbcType=INTEGER}, #{protocol,jdbcType=BIT}, 
+      #{stafStatus,jdbcType=SMALLINT}, #{denseLevel,jdbcType=INTEGER}, #{protocol,jdbcType=BIT}, 
       #{createRDate,jdbcType=DATE}, #{createTime,jdbcType=DATE}, #{createUser,jdbcType=INTEGER}, 
       #{createUsername,jdbcType=VARCHAR}, #{ordered,jdbcType=INTEGER}, #{delflag,jdbcType=BIT}, 
       #{remark,jdbcType=VARCHAR})
@@ -86,25 +85,24 @@
       birth = #{birth,jdbcType=DATE},
       tran_type = #{tranType,jdbcType=TINYINT},
       expert = #{expert,jdbcType=VARCHAR},
-      direction_type = #{directionType,jdbcType=INTEGER},
       direction_price = #{directionPrice,jdbcType=VARCHAR},
       adress = #{adress,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=CHAR},
       Email = #{email,jdbcType=VARCHAR},
       QQ = #{qq,jdbcType=VARCHAR},
-      attitude = #{attitude,jdbcType=BIT},
+      attitude = #{attitude,jdbcType=SMALLINT},
       occupation = #{occupation,jdbcType=VARCHAR},
-      tran_years = #{tranYears,jdbcType=TINYINT},
+      tran_years = #{tranYears,jdbcType=SMALLINT},
       graduate = #{graduate,jdbcType=VARCHAR},
-      education = #{education,jdbcType=BIT},
+      education = #{education,jdbcType=SMALLINT},
       profession = #{profession,jdbcType=VARCHAR},
       grade = #{grade,jdbcType=VARCHAR},
       score = #{score,jdbcType=DOUBLE},
       ID_card = #{idCard,jdbcType=VARCHAR},
       bank = #{bank,jdbcType=VARCHAR},
       bank_account = #{bankAccount,jdbcType=CHAR},
-      staf_status = #{stafStatus,jdbcType=BIT},
+      staf_status = #{stafStatus,jdbcType=SMALLINT},
       Dense_level = #{denseLevel,jdbcType=INTEGER},
       protocol = #{protocol,jdbcType=BIT},
       create_r_date = #{createRDate,jdbcType=DATE},
@@ -118,19 +116,19 @@
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select id, staf_num, staf_type, staf_name, staf_alias, work_type, language, sex, 
-    birth, tran_type, expert, direction_type, direction_price, adress, phone, mobile, 
-    Email, QQ, attitude, occupation, tran_years, graduate, education, profession, grade, 
-    score, ID_card, bank, bank_account, staf_status, Dense_level, protocol, create_r_date, 
-    create_time, create_user, create_username, ordered, delflag, remark
+    birth, tran_type, expert, direction_price, adress, phone, mobile, Email, QQ, attitude, 
+    occupation, tran_years, graduate, education, profession, grade, score, ID_card, bank, 
+    bank_account, staf_status, Dense_level, protocol, create_r_date, create_time, create_user, 
+    create_username, ordered, delflag, remark
     from t_staff
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
     select id, staf_num, staf_type, staf_name, staf_alias, work_type, language, sex, 
-    birth, tran_type, expert, direction_type, direction_price, adress, phone, mobile, 
-    Email, QQ, attitude, occupation, tran_years, graduate, education, profession, grade, 
-    score, ID_card, bank, bank_account, staf_status, Dense_level, protocol, create_r_date, 
-    create_time, create_user, create_username, ordered, delflag, remark
+    birth, tran_type, expert, direction_price, adress, phone, mobile, Email, QQ, attitude, 
+    occupation, tran_years, graduate, education, profession, grade, score, ID_card, bank, 
+    bank_account, staf_status, Dense_level, protocol, create_r_date, create_time, create_user, 
+    create_username, ordered, delflag, remark
     from t_staff
   </select>
 </mapper>
