@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.DispatchMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Dispatch" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dish_num" property="dishNum" jdbcType="VARCHAR" />
+    <result column="dispatcher_id" property="dispatcherId" jdbcType="INTEGER" />
+    <result column="pro_id" property="proId" jdbcType="INTEGER" />
+    <result column="pt_id" property="ptId" jdbcType="INTEGER" />
+    <result column="pm_id" property="pmId" jdbcType="INTEGER" />
+    <result column="pt_perid" property="ptPerid" jdbcType="INTEGER" />
+    <result column="pt_pername" property="ptPername" jdbcType="VARCHAR" />
+    <result column="pt_desc" property="ptDesc" jdbcType="VARCHAR" />
+    <result column="dish_stime" property="dishStime" jdbcType="DATE" />
+    <result column="dish_etime" property="dishEtime" jdbcType="DATE" />
+    <result column="pt_content" property="ptContent" jdbcType="VARCHAR" />
+    <result column="pt_camount" property="ptCamount" jdbcType="INTEGER" />
+    <result column="deliver_time" property="deliverTime" jdbcType="DATE" />
+    <result column="exec_state" property="execState" jdbcType="SMALLINT" />
+    <result column="create_r_date" property="createRDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_uid" property="createUid" jdbcType="INTEGER" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_dispatch
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Dispatch" >
+    insert into t_dispatch (id, dish_num, dispatcher_id, 
+      pro_id, pt_id, pm_id, 
+      pt_perid, pt_pername, pt_desc, 
+      dish_stime, dish_etime, pt_content, 
+      pt_camount, deliver_time, exec_state, 
+      create_r_date, create_time, create_uid, 
+      create_user, update_time, ordered, 
+      delflag, remark)
+    values (#{id,jdbcType=INTEGER}, #{dishNum,jdbcType=VARCHAR}, #{dispatcherId,jdbcType=INTEGER}, 
+      #{proId,jdbcType=INTEGER}, #{ptId,jdbcType=INTEGER}, #{pmId,jdbcType=INTEGER}, 
+      #{ptPerid,jdbcType=INTEGER}, #{ptPername,jdbcType=VARCHAR}, #{ptDesc,jdbcType=VARCHAR}, 
+      #{dishStime,jdbcType=DATE}, #{dishEtime,jdbcType=DATE}, #{ptContent,jdbcType=VARCHAR}, 
+      #{ptCamount,jdbcType=INTEGER}, #{deliverTime,jdbcType=DATE}, #{execState,jdbcType=SMALLINT}, 
+      #{createRDate,jdbcType=DATE}, #{createTime,jdbcType=DATE}, #{createUid,jdbcType=INTEGER}, 
+      #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{ordered,jdbcType=INTEGER}, 
+      #{delflag,jdbcType=BIT}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Dispatch" >
+    update t_dispatch
+    set dish_num = #{dishNum,jdbcType=VARCHAR},
+      dispatcher_id = #{dispatcherId,jdbcType=INTEGER},
+      pro_id = #{proId,jdbcType=INTEGER},
+      pt_id = #{ptId,jdbcType=INTEGER},
+      pm_id = #{pmId,jdbcType=INTEGER},
+      pt_perid = #{ptPerid,jdbcType=INTEGER},
+      pt_pername = #{ptPername,jdbcType=VARCHAR},
+      pt_desc = #{ptDesc,jdbcType=VARCHAR},
+      dish_stime = #{dishStime,jdbcType=DATE},
+      dish_etime = #{dishEtime,jdbcType=DATE},
+      pt_content = #{ptContent,jdbcType=VARCHAR},
+      pt_camount = #{ptCamount,jdbcType=INTEGER},
+      deliver_time = #{deliverTime,jdbcType=DATE},
+      exec_state = #{execState,jdbcType=SMALLINT},
+      create_r_date = #{createRDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=DATE},
+      create_uid = #{createUid,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=DATE},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, dish_num, dispatcher_id, pro_id, pt_id, pm_id, pt_perid, pt_pername, pt_desc, 
+    dish_stime, dish_etime, pt_content, pt_camount, deliver_time, exec_state, create_r_date, 
+    create_time, create_uid, create_user, update_time, ordered, delflag, remark
+    from t_dispatch
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, dish_num, dispatcher_id, pro_id, pt_id, pm_id, pt_perid, pt_pername, pt_desc, 
+    dish_stime, dish_etime, pt_content, pt_camount, deliver_time, exec_state, create_r_date, 
+    create_time, create_uid, create_user, update_time, ordered, delflag, remark
+    from t_dispatch
+  </select>
+</mapper>

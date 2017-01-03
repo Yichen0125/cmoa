@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cmoa.besteasy.mappers.CusContactMapper" >
-  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.CusContact" >
+<mapper namespace="com.cmoa.besteasy.mappers.CuscontactMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Cuscontact" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="cc_num" property="ccNum" jdbcType="CHAR" />
     <result column="isprimary" property="isprimary" jdbcType="BIT" />
@@ -19,7 +19,7 @@
     <result column="cc_tel" property="ccTel" jdbcType="VARCHAR" />
     <result column="cc_fax" property="ccFax" jdbcType="VARCHAR" />
     <result column="cc_wx" property="ccWx" jdbcType="VARCHAR" />
-    <result column="cc_mphone" property="ccMphone" jdbcType="INTEGER" />
+    <result column="cc_mobile" property="ccMobile" jdbcType="VARCHAR" />
     <result column="cc_career" property="ccCareer" jdbcType="VARCHAR" />
     <result column="cc_desp" property="ccDesp" jdbcType="VARCHAR" />
     <result column="cc_gwqk" property="ccGwqk" jdbcType="VARCHAR" />
@@ -45,13 +45,13 @@
     delete from t_cuscontact
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.cmoa.besteasy.entities.CusContact" >
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Cuscontact" >
     insert into t_cuscontact (id, cc_num, isprimary, 
       cusp_id, cus_id, cc_name, 
       sex, cc_adress, hobbies, 
       cc_email, birth, cc_dept, 
       duties, cc_qq, cc_tel, 
-      cc_fax, cc_wx, cc_mphone, 
+      cc_fax, cc_wx, cc_mobile, 
       cc_career, cc_desp, cc_gwqk, 
       cc_cgljs, cc_fylx, cc_jczyd, 
       cc_xqfl, cc_xqms, cc_fgzcdms, 
@@ -64,7 +64,7 @@
       #{sex,jdbcType=BIT}, #{ccAdress,jdbcType=VARCHAR}, #{hobbies,jdbcType=VARCHAR}, 
       #{ccEmail,jdbcType=VARCHAR}, #{birth,jdbcType=DATE}, #{ccDept,jdbcType=INTEGER}, 
       #{duties,jdbcType=VARCHAR}, #{ccQq,jdbcType=VARCHAR}, #{ccTel,jdbcType=VARCHAR}, 
-      #{ccFax,jdbcType=VARCHAR}, #{ccWx,jdbcType=VARCHAR}, #{ccMphone,jdbcType=INTEGER}, 
+      #{ccFax,jdbcType=VARCHAR}, #{ccWx,jdbcType=VARCHAR}, #{ccMobile,jdbcType=VARCHAR}, 
       #{ccCareer,jdbcType=VARCHAR}, #{ccDesp,jdbcType=VARCHAR}, #{ccGwqk,jdbcType=VARCHAR}, 
       #{ccCgljs,jdbcType=INTEGER}, #{ccFylx,jdbcType=INTEGER}, #{ccJczyd,jdbcType=INTEGER}, 
       #{ccXqfl,jdbcType=INTEGER}, #{ccXqms,jdbcType=VARCHAR}, #{ccFgzcdms,jdbcType=TINYINT}, 
@@ -73,7 +73,7 @@
       #{createUsername,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE}, #{ordered,jdbcType=INTEGER}, 
       #{delflag,jdbcType=BIT}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.CusContact" >
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Cuscontact" >
     update t_cuscontact
     set cc_num = #{ccNum,jdbcType=CHAR},
       isprimary = #{isprimary,jdbcType=BIT},
@@ -91,7 +91,7 @@
       cc_tel = #{ccTel,jdbcType=VARCHAR},
       cc_fax = #{ccFax,jdbcType=VARCHAR},
       cc_wx = #{ccWx,jdbcType=VARCHAR},
-      cc_mphone = #{ccMphone,jdbcType=INTEGER},
+      cc_mobile = #{ccMobile,jdbcType=VARCHAR},
       cc_career = #{ccCareer,jdbcType=VARCHAR},
       cc_desp = #{ccDesp,jdbcType=VARCHAR},
       cc_gwqk = #{ccGwqk,jdbcType=VARCHAR},
@@ -116,7 +116,7 @@
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select id, cc_num, isprimary, cusp_id, cus_id, cc_name, sex, cc_adress, hobbies, 
-    cc_email, birth, cc_dept, duties, cc_qq, cc_tel, cc_fax, cc_wx, cc_mphone, cc_career, 
+    cc_email, birth, cc_dept, duties, cc_qq, cc_tel, cc_fax, cc_wx, cc_mobile, cc_career, 
     cc_desp, cc_gwqk, cc_cgljs, cc_fylx, cc_jczyd, cc_xqfl, cc_xqms, cc_fgzcdms, cc_pjreason, 
     cc_motiv, cc_social, create_r_date, create_time, create_user, create_username, update_time, 
     ordered, delflag, remark
@@ -125,10 +125,35 @@
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
     select id, cc_num, isprimary, cusp_id, cus_id, cc_name, sex, cc_adress, hobbies, 
-    cc_email, birth, cc_dept, duties, cc_qq, cc_tel, cc_fax, cc_wx, cc_mphone, cc_career, 
+    cc_email, birth, cc_dept, duties, cc_qq, cc_tel, cc_fax, cc_wx, cc_mobile, cc_career, 
     cc_desp, cc_gwqk, cc_cgljs, cc_fylx, cc_jczyd, cc_xqfl, cc_xqms, cc_fgzcdms, cc_pjreason, 
     cc_motiv, cc_social, create_r_date, create_time, create_user, create_username, update_time, 
     ordered, delflag, remark
     from t_cuscontact
   </select>
+  <select id="selectPage" resultType="com.cmoa.besteasy.entities.Cuscontact" >
+    select id, cc_num, isprimary, cusp_id, cus_id, cc_name, sex, cc_adress, hobbies, 
+    cc_email, birth, cc_dept, duties, cc_qq, cc_tel, cc_fax, cc_wx, cc_mobile, cc_career, 
+    cc_desp, cc_gwqk, cc_cgljs, cc_fylx, cc_jczyd, cc_xqfl, cc_xqms, cc_fgzcdms, cc_pjreason, 
+    cc_motiv, cc_social, create_r_date, create_time, create_user, create_username, update_time, 
+    ordered, delflag, remark
+    from t_cuscontact
+    <include refid="getPageQuery"></include>
+  </select>
+  <sql id="getPageQuery">
+  	<where>
+  			delflag = false 
+			<if test="cusNameZh != null">
+				and cus_name_zh like #{cusNameZh}
+			</if>
+			<if test="cusNameEn != null">
+				and cus_name_en like #{cusNameEn}
+			</if>
+			<if test="status != null and status != ''">
+				and status = #{status}
+			</if>
+		</where>
+  </sql>
+  
+  
 </mapper>

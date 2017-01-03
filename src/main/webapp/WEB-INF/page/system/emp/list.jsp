@@ -23,26 +23,6 @@
 				window.location.href = "${ctp}/system/group/emp/toDeleteUI/"+id;
 				
 			})
-			
-			/* $("img[id^='delete-']").click(function(){
-				
-				var flag = confirm("确认删除吗");
-				if(flag){
-					var id = this.id.split("-")[1];
-					var thisImg = $(this);
-					
-					var url = "${ctp}/system/group/emp/delete/"+id;
-					var args = {"_method":"DELETE","time":new Date()};
-					
-					$.post(url,args,function(data){
-						if(data == "1"){
-							alert("删除成功");
-							thisImg.parent().parent().remove();
-						}
-						
-					});
-				}
-			}) */
 		})
 	</script>
 </head>

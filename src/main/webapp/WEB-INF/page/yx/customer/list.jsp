@@ -25,16 +25,12 @@
 					var id = this.id.split("-")[1];
 					var thisImg = $(this);
 					
-					var url = "${ctp}/user/"+id;
-					var args = {"_method":"DELETE","time":new Date()};
+					 var url = "${ctp}/yx/customer/delete/"+id+"/${pageInfo.pageNum}";
 					
-					$.post(url,args,function(data){
-						if(data == 1){
-							alert("删除成功");
-							thisImg.parent().parent().remove();
-						}
-						
-					});
+					$("#hiddenForm").attr("action",url);
+					$("#_method").val("DELETE");
+					$("#hiddenForm").submit();
+					return false;
 				}
 			})
 		})

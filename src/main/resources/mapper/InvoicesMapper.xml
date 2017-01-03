@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmoa.besteasy.mappers.InvoicesMapper" >
+  <resultMap id="BaseResultMap" type="com.cmoa.besteasy.entities.Invoices" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="Apply_id" property="applyId" jdbcType="VARCHAR" />
+    <result column="cus_id" property="cusId" jdbcType="INTEGER" />
+    <result column="contact_id" property="contactId" jdbcType="INTEGER" />
+    <result column="emp_id" property="empId" jdbcType="INTEGER" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="manner" property="manner" jdbcType="INTEGER" />
+    <result column="ykje" property="ykje" jdbcType="DOUBLE" />
+    <result column="zkje" property="zkje" jdbcType="DOUBLE" />
+    <result column="zkjesl" property="zkjesl" jdbcType="DOUBLE" />
+    <result column="zkjesj" property="zkjesj" jdbcType="DOUBLE" />
+    <result column="sq_time" property="sqTime" jdbcType="DATE" />
+    <result column="sq_status" property="sqStatus" jdbcType="SMALLINT" />
+    <result column="sp_status" property="spStatus" jdbcType="SMALLINT" />
+    <result column="sp_time" property="spTime" jdbcType="DATE" />
+    <result column="sp_emp" property="spEmp" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="ordered" property="ordered" jdbcType="INTEGER" />
+    <result column="delflag" property="delflag" jdbcType="BIT" />
+    <result column="remarks" property="remarks" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_invoices
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmoa.besteasy.entities.Invoices" >
+    insert into t_invoices (id, Apply_id, cus_id, 
+      contact_id, emp_id, order_id, 
+      type, manner, ykje, 
+      zkje, zkjesl, zkjesj, 
+      sq_time, sq_status, sp_status, 
+      sp_time, sp_emp, create_time, 
+      create_username, create_user, ordered, 
+      delflag, remarks)
+    values (#{id,jdbcType=INTEGER}, #{applyId,jdbcType=VARCHAR}, #{cusId,jdbcType=INTEGER}, 
+      #{contactId,jdbcType=INTEGER}, #{empId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, 
+      #{type,jdbcType=INTEGER}, #{manner,jdbcType=INTEGER}, #{ykje,jdbcType=DOUBLE}, 
+      #{zkje,jdbcType=DOUBLE}, #{zkjesl,jdbcType=DOUBLE}, #{zkjesj,jdbcType=DOUBLE}, 
+      #{sqTime,jdbcType=DATE}, #{sqStatus,jdbcType=SMALLINT}, #{spStatus,jdbcType=SMALLINT}, 
+      #{spTime,jdbcType=DATE}, #{spEmp,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, 
+      #{createUsername,jdbcType=VARCHAR}, #{createUser,jdbcType=INTEGER}, #{ordered,jdbcType=INTEGER}, 
+      #{delflag,jdbcType=BIT}, #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cmoa.besteasy.entities.Invoices" >
+    update t_invoices
+    set Apply_id = #{applyId,jdbcType=VARCHAR},
+      cus_id = #{cusId,jdbcType=INTEGER},
+      contact_id = #{contactId,jdbcType=INTEGER},
+      emp_id = #{empId,jdbcType=INTEGER},
+      order_id = #{orderId,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      manner = #{manner,jdbcType=INTEGER},
+      ykje = #{ykje,jdbcType=DOUBLE},
+      zkje = #{zkje,jdbcType=DOUBLE},
+      zkjesl = #{zkjesl,jdbcType=DOUBLE},
+      zkjesj = #{zkjesj,jdbcType=DOUBLE},
+      sq_time = #{sqTime,jdbcType=DATE},
+      sq_status = #{sqStatus,jdbcType=SMALLINT},
+      sp_status = #{spStatus,jdbcType=SMALLINT},
+      sp_time = #{spTime,jdbcType=DATE},
+      sp_emp = #{spEmp,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=DATE},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=INTEGER},
+      ordered = #{ordered,jdbcType=INTEGER},
+      delflag = #{delflag,jdbcType=BIT},
+      remarks = #{remarks,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, Apply_id, cus_id, contact_id, emp_id, order_id, type, manner, ykje, zkje, 
+    zkjesl, zkjesj, sq_time, sq_status, sp_status, sp_time, sp_emp, create_time, create_username, 
+    create_user, ordered, delflag, remarks
+    from t_invoices
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, Apply_id, cus_id, contact_id, emp_id, order_id, type, manner, ykje, zkje, 
+    zkjesl, zkjesj, sq_time, sq_status, sp_status, sp_time, sp_emp, create_time, create_username, 
+    create_user, ordered, delflag, remarks
+    from t_invoices
+  </select>
+</mapper>

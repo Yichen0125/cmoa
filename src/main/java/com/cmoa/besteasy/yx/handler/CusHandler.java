@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,12 @@ public class CusHandler extends CustomerModel{
 	@Autowired
 	private RoleService roleService;
 	
+	@RequestMapping(value="delete/{id}/{pageNum}",method=RequestMethod.DELETE)
+	public void delete(@PathVariable("id") Integer id,@PathVariable(value="pageNum") Integer pageNo,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		customerService.deleteCus(id);
+		String header = request.getHeader("Referer");
+		response.sendRedirect(header);
+	}
 	@RequestMapping("/update")
 	public String update (Customer customer){
 		customerService.updateCus(customer);
@@ -144,7 +151,6 @@ public class CusHandler extends CustomerModel{
 		map.put("cusList",cusList);
 		map.put("pageInfo",pageInfo);
 		map.put("totalElements",pageInfo.getTotal());
-//		map.put("cusStatus", cusStatus);
 		return "yx/customer/list";
 	}
 	

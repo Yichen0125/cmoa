@@ -55,6 +55,17 @@ public class CustomerService {
 		customer.setUpdateTime(new Date());
 		customerMapper.updateByPrimaryKey(customer);
 	}
+	@Transactional(readOnly = false)
+	public void deleteCus(Integer id) {
+		Customer cus = customerMapper.selectByPrimaryKey(id);
+		cus.setDelflag(true);
+		cus.setUpdateTime(new Date());
+		customerMapper.updateByPrimaryKey(cus);
+	}
+
+	public List<Customer> selectAll() {
+		return customerMapper.selectAll();
+	}
 	
 	
 	

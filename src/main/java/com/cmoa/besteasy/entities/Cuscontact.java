@@ -2,7 +2,9 @@ package com.cmoa.besteasy.entities;
 
 import java.util.Date;
 
-public class CusContact {
+import org.springframework.format.annotation.DateTimeFormat;
+
+public class Cuscontact {
     private Integer id;
 
     private String ccNum;
@@ -22,7 +24,7 @@ public class CusContact {
     private String hobbies;
 
     private String ccEmail;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birth;
 
     private Integer ccDept;
@@ -37,7 +39,7 @@ public class CusContact {
 
     private String ccWx;
 
-    private Integer ccMphone;
+    private String ccMobile;
 
     private String ccCareer;
 
@@ -70,7 +72,7 @@ public class CusContact {
     private Integer createUser;
 
     private String createUsername;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     private Integer ordered;
@@ -215,12 +217,12 @@ public class CusContact {
         this.ccWx = ccWx == null ? null : ccWx.trim();
     }
 
-    public Integer getCcMphone() {
-        return ccMphone;
+    public String getCcMobile() {
+        return ccMobile;
     }
 
-    public void setCcMphone(Integer ccMphone) {
-        this.ccMphone = ccMphone;
+    public void setCcMobile(String ccMobile) {
+        this.ccMobile = ccMobile == null ? null : ccMobile.trim();
     }
 
     public String getCcCareer() {

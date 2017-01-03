@@ -8,14 +8,14 @@
 		$(function(){
 			
 			$("#new").click(function(){
-				window.location.href="${ctp}" + "/yx/order/toAddUI";
+				window.location.href="${ctp}" + "/yx/contact/toAddUI";
 				return false;
 			});
 			
 			$("img[id^='update-']").click(function(){
 				var id = this.id.split("-")[1];
 				
-				window.location.href = "${ctp}/yx/order/toEditUI/"+id;
+				window.location.href = "${ctp}/yx/customer/toEditUI/"+id;
 			})
 			
 			$("img[id^='delete-']").click(function(){
@@ -25,16 +25,12 @@
 					var id = this.id.split("-")[1];
 					var thisImg = $(this);
 					
-					var url = "${ctp}/user/"+id;
-					var args = {"_method":"DELETE","time":new Date()};
+					 var url = "${ctp}/yx/customer/delete/"+id+"/${pageInfo.pageNum}";
 					
-					$.post(url,args,function(data){
-						if(data == 1){
-							alert("删除成功");
-							thisImg.parent().parent().remove();
-						}
-						
-					});
+					$("#hiddenForm").attr("action",url);
+					$("#_method").val("DELETE");
+					$("#hiddenForm").submit();
+					return false;
 				}
 			})
 		})
@@ -42,9 +38,9 @@
 </head>
 
 <body class="main">
-	<form action="${ctp }/user/list">
+	<form action="${ctp }/yx/customer/list">
 		<div class="page_title">
-			订单管理
+			联系人管理
 		</div>
 		<div class="button_bar">
 			<button class="common_button" id="new">新建</button>
@@ -56,17 +52,16 @@
 			cellSpacing="0">
 			<tr>
 				<th class="input_title">
-					订单编号
+					联系人姓名
 				</th>
 				<td class="input_content">
-					<input type="text" name="search_LIKES_cusName" value="${param.search_LIKES_cusName }"/>
+					<input type="text" name="search_LIKES_cusNameZh" value="${param.search_LIKES_cusNameZh }"/>
 				</td>
-				
 				<th class="input_title">
-					客户名称
+					联系人电话
 				</th>
 				<td class="input_content">
-					<input type="text" name="search_LIKES_cusName" value="${param.search_LIKES_cusName }"/>
+					<input type="text" name="search_LIKES_cusNameEn" value="${param.search_LIKES_cusNameEn }"/>
 				</td>
 				
 			</tr>
@@ -74,7 +69,7 @@
 		<!-- 列表数据 -->
 		<br />
 		
-		<c:if test="${orderList != null && totalElements > 0 }">
+		<c:if test="${contactList != null && totalElements > 0 }">
 			<table class="data_list_table" border="0" cellPadding="3"
 				cellSpacing="0">
 				<tr>
@@ -82,31 +77,42 @@
 						编号
 					</th>
 					<th class="data_title" style="width: 50%;">
-						用户名
+						联系人姓名
+					</th>
+					<th class="data_title" style="width: 50%;">
+						性别
 					</th>
 					<th class="data_title" style="width: 20%;">
-						状态
+						联系人电话
+					</th>
+					<th class="data_title" style="width: 20%;">
+						邮箱
 					</th>
 					<th class="data_title">
 						操作
 					</th>
 				</tr>
-				<c:forEach var="order" items="${orderList }">
+				<c:forEach var="con" items="${contactList }">
 					<tr>
 						<td class="data_cell" style="text-align: right; padding: 0 10px;">
-						${order.id}
+						${con.num}
 						</td>
 						<td id="nameLable" class="data_cell" style="text-align: center;">
-						${order.ordNum}
+						${con.ccName}
 						</td>
-						<td class="data_cell">
-						${order.cusId}
+						<td id="nameLable" class="data_cell" style="text-align: center;">
+						${con.sex}
 						</td>
-						
-						<td class="data_cell">
-							<img id="delete-${user.id}"
+						<td id="nameLable" class="data_cell" style="text-align: center;">
+						${con.ccTel}
+						</td>
+						<td id="nameLable" class="data_cell" style="text-align: center;">
+						${con.ccEmail}
+						</td>
+						<td class="data_cell"  align="center">
+							<img id="delete-${cus.id}"
 								title="删除" src="${ctp }/static/images/bt_del.gif" class="op_button" />
-							<img id="update-${user.id}"
+							<img id="update-${cus.id}"
 								class="op_button" src="${ctp }/static/images/bt_edit.gif" title="编辑" />
 						</td>
 					</tr>
@@ -116,9 +122,10 @@
 			<%@include file="/commons/pageHelper.jsp" %>
 			
 		</c:if>
-		<c:if test="${orderList == null ||totalElements == 0 }">
+		<c:if test="${contactList == null ||totalElements == 0 }">
 			没有任何数据
 		</c:if>
 	</form>
+	abcd
 </body>
 </html>

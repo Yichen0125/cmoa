@@ -14,5 +14,4 @@ public class ServerHandler {
 	public String toGroupUi() {
 		return "server/group";
 	}
-
 }
